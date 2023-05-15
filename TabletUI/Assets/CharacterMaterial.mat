@@ -128,7 +128,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _FlipbookBlending: 0
     - _FlipbookMode: 0
-    - _GlitchSpeed: 0.59
+    - _GlitchSpeed: 1.33
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
