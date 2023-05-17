@@ -118,7 +118,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _WireframeTexture:
-        m_Texture: {fileID: 2800000, guid: 64e571d2606f2654498015949545e956, type: 3}
+        m_Texture: {fileID: 2800000, guid: 538fad46e253f994a845bfac330fa27f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
