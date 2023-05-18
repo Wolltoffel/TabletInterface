@@ -5,17 +5,18 @@ using UnityEngine.Events;
 
 public class HoverManager : MonoBehaviour
 {
+    [SerializeField]HoverSessionData[] hoverSessionData;
+    [SerializeField] AndroidSelector androidSelector;
 
-    [SerializeField]GameObject[] hoverGameObject;
-    [SerializeField] UnityEvent<HoverInformation>[] unityEvents;
-    [SerializeField] HoverInformation hoverInformation;
-
-    private void Awake()
+    private void Start()
     {
-        for (int i = 0; i < hoverGameObject.Length; i++)
+        for (int i = 0; i < hoverSessionData.Length; i++)
         {
-           var hoverScript = hoverGameObject[i].AddComponent<ClickToInteractWithGameObject>();
-           hoverScript.hoverInfo = new HoverInformation(i, unityEvents[i]);
+            hoverSessionData[i].ConnectEvents();
+            if (i!=0)
+                hoverSessionData[i].silenceCurrentButtons();
+            if (hoverSessionData[i].onActive)
+                androidSelector.AddActiveHoverSessionData(hoverSessionData[i].giveClickables());
         }
     }
 }
