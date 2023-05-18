@@ -6,18 +6,11 @@ using UnityEngine.EventSystems;
 
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
-     HoverInformation hoverInfo;
-     UnityEvent<HoverInformation> hoverEvent;
+    public HoverInformation hoverInfo;
 
     public void OnPointerDown (PointerEventData eventData)
     {
-        hoverEvent?.Invoke(hoverInfo);
+        hoverInfo.unityEvent?.Invoke(hoverInfo);
         Debug.Log(hoverInfo.index);
-    }
-
-    public void InsertSetUpData(HoverInformation hoverInfo, UnityEvent<HoverInformation> hoverEvent)
-    {
-        this.hoverInfo = hoverInfo;
-        this.hoverEvent=hoverEvent;
     }
 }

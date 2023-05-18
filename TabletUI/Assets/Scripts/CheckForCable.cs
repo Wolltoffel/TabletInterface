@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class CheckForCable
+public class CheckForCable : MonoBehaviour
 {
- 
-    public bool checkForChargingCable() {
-        if (SystemInfo.batteryStatus == BatteryStatus.Charging || SystemInfo.batteryStatus == BatteryStatus.NotCharging || SystemInfo.batteryStatus == BatteryStatus.Full)
+   [SerializeField] UnityEvent startScene;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (SystemInfo.batteryStatus==BatteryStatus.Charging||SystemInfo.batteryStatus==BatteryStatus.NotCharging|| SystemInfo.batteryStatus == BatteryStatus.Full)
         {
-            Debug.Log("Device is plugged in");
-            return true;
+            startScene?.Invoke();
+            Debug.Log("Device Is Plugged In");
         }
-        return false;
     }
 }

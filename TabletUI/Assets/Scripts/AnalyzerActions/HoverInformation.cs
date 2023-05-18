@@ -6,9 +6,11 @@ using UnityEngine.Events;
 public class HoverInformation
 {
     public int index;
+    public UnityEvent<HoverInformation> unityEvent;
 
-    public HoverInformation(int index)
+    public HoverInformation(int index, UnityEvent<HoverInformation> unityEvent)
     {
         this.index = index;
+        this.unityEvent = unityEvent;
     }
 }
