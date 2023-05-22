@@ -2,31 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     CheckForCable checkForCable = new CheckForCable();
+    [SerializeField] bool activeCableToggle = false;
+    [SerializeField] ScreenManager screenManager;
+
+    int cablePollingRate = 1;
 
     private IEnumerator Start()
     {
-        if (checkForCable.checkForChargingCable())
+        //Check if a cable is plugged in
+        if (checkForCable.checkForChargingCable() && activeCableToggle)
         {
-            //Switch from StartScreen to Scene
+            screenManager.switchScreen("MainScreen");
         }
-
-        while (checkForCable.checkForChargingCable())
-        {
-            yield return new WaitForSeconds(1);
-        }
-
-        //Show Startscreen
-
-        Debug.Log("LoadingStartScreen");
-
-        //Loading Screen
-        yield return new WaitForSeconds(2);
-        //Load Buttons
-        //Switch Buttons
-        //Load Buttons
+            
+        else
+            screenManager.switchScreen("DisconnectScreen");
+        
+        yield return new WaitForSeconds(cablePollingRate);
+  
+        yield return Start();
     }
 }
