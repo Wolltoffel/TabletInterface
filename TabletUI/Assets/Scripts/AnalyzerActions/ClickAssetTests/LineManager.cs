@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.Events;
 
 public class LineManager : MonoBehaviour
 {
@@ -13,6 +13,8 @@ public class LineManager : MonoBehaviour
     [SerializeField] float distanceToCamera;
     [SerializeField] Canvas canvas;
     [SerializeField] float ledgeOffset;
+    [SerializeField] float drawLine;
+    [SerializeField] UnityEvent lineDrawn;
 
     private void Awake()
     {
@@ -25,6 +27,10 @@ public class LineManager : MonoBehaviour
     private void Start()
     {
         StartForwardAnimation();
+    }
+
+    private void Update()
+    {
     }
 
     private void OnDrawGizmos()
@@ -105,6 +111,7 @@ public class LineManager : MonoBehaviour
                 yield return null;
             }
         }
+        lineDrawn?.Invoke();
     }
 
     IEnumerator animateLinesBackward()
@@ -131,3 +138,4 @@ public class LineManager : MonoBehaviour
         }
     }
 }
+
