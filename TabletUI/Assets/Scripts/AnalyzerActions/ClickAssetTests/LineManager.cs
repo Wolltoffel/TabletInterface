@@ -6,12 +6,13 @@ using UnityEngine.UIElements;
 
 public class LineManager : MonoBehaviour
 {
-    [SerializeField]LineRenderer lineRenderer;
-    [SerializeField]Transform[] vertex;
+    [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Transform[] vertex;
     Vector3[] vertexPositions;
     [SerializeField] float animationDuration;
-    [SerializeField]float distanceToCamera;
-    [SerializeField]Canvas canvas;
+    [SerializeField] float distanceToCamera;
+    [SerializeField] Canvas canvas;
+    [SerializeField] float ledgeOffset;
 
     private void Awake()
     {
@@ -23,20 +24,33 @@ public class LineManager : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(animateLines());
-    }
-    private void Update()
-    {
-
+        StartForwardAnimation();
     }
 
     private void OnDrawGizmos()
     {
-        for (int i = 0; i < vertex.Length-1; i++)
+        for (int i = 0; i < vertex.Length - 1; i++)
         {
             Gizmos.DrawLine(vertex[i].position, vertex[i + 1].position);
         }
     }
+    
+    void manageLineRenderer()
+    {
+        vertexPositions = new Vector3[vertex.Length];
+
+        for (int i = 0; i < vertex.Length; i++)
+        {
+            vertexPositions[i] = vertex[i].position;
+            updateVertexPositions(i);
+            
+            if (i== vertex.Length - 1)
+            {
+                addLedge();
+            }
+        }
+    }
+
     void updateVertexPositions(int index)
     {
         //Put all vertex on a plane and always face the camera
@@ -44,30 +58,46 @@ public class LineManager : MonoBehaviour
         Vector3 vertexToCamera = Camera.main.transform.position - vertexPositions[index];
         vertexPositions[index] = vertexPositions[index] + vertexToCamera.normalized / distanceToCamera;
     }
-    void manageLineRenderer() {
 
-        float planeDistance = canvas.planeDistance;
-        vertexPositions = new Vector3[vertex.Length];
-
-        for (int i = 0; i < vertex.Length; i++) {
-            vertexPositions[i] = vertex[i].position;
-            updateVertexPositions(i);
+    void addLedge()
+    {
+        Vector3 target = vertexPositions[vertex.Length - 1];
+        Vector3 ledge = target+ new Vector3 (-ledgeOffset,0,0);
+        Vector3[] newVertexPositions = new Vector3[vertexPositions.Length+1];
+        
+        for (int i= 0; i<vertexPositions.Length;i++)
+        {
+            newVertexPositions[i] = vertexPositions[i];
         }
+
+        newVertexPositions[vertexPositions.Length-1] = ledge;
+        newVertexPositions[vertexPositions.Length] = target;
+        vertexPositions = newVertexPositions;
     }
-    IEnumerator animateLines()
+
+    public void StartForwardAnimation()
+    {
+        StartCoroutine(animateLinesForward());
+    }
+
+    public void StartBackwardAnimation()
+    {
+        StartCoroutine(animateLinesBackward());
+    }
+    IEnumerator animateLinesForward()
     {
         //Set origin
-        if (vertex.Length>0) 
+        if (vertex.Length > 0)
             lineRenderer.SetPosition(0, vertexPositions[0]);
 
         for (int i = 1; i < vertexPositions.Length; i++)
         {
-            float startTime  = Time.time;
+            float startTime = Time.time;
             Vector3 target = vertexPositions[i];
             Vector3 start = vertexPositions[i - 1];
             Vector3 current = start;
             lineRenderer.positionCount = i + 1;
-            while (current!=target)
+            while (current != target)
             {
                 float t = (Time.time - startTime) / animationDuration;
                 current = Vector3.Lerp(start, vertexPositions[i], t);
@@ -77,5 +107,27 @@ public class LineManager : MonoBehaviour
         }
     }
 
+    IEnumerator animateLinesBackward()
+    {
+        for (int i = vertexPositions.Length - 1; i > 0; i--)
+        {
+            float startTime = Time.time;
+            Vector3 start = vertexPositions[i];
+            Vector3 target = vertexPositions[i - 1];
+            Vector3 current = start;
+            Debug.Log(i);
+            while (current != target)
+            {
+                float t = (Time.time - startTime) / animationDuration;
+                current = Vector3.Lerp(start, target, t);
+                for (int j = i; j < lineRenderer.positionCount; j++)
+                {
+                    lineRenderer.SetPosition(j, current);
+                }
 
+                yield return null;
+            }
+            lineRenderer.positionCount--; ;
+        }
+    }
 }
