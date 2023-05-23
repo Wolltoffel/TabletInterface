@@ -12,7 +12,6 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown (PointerEventData eventData)
     {
         hoverEvent?.Invoke(hoverInfo);
-        Debug.Log(hoverInfo.index);
     }
 
     public void InsertSetUpData(HoverInformation hoverInfo, UnityEvent<HoverInformation> hoverEvent)
