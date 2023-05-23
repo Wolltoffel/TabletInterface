@@ -8,21 +8,21 @@ using UnityEngine.UIElements;
 
 public class LineManager : MonoBehaviour
 {
+    [Header ("Importables")]
     [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Canvas canvas;
     [SerializeField] Transform[] vertex;
     Vector3[] vertexPositions;
+
+    [Header ("Attributes")]
     [SerializeField] float animationDuration;
     [SerializeField] float distanceToCamera;
-    [SerializeField] Canvas canvas;
     [SerializeField] float ledgeOffset;
 
     [Header("ManualLineRenderer")]
-    [SerializeField] UnityEvent lineDrawn;
     Vector3[] currentList;
-
     [SerializeField] bool activateDrawLine;
     [SerializeField][Range(0,1)] float drawLine;
-
 
 
     private void Awake()
@@ -125,7 +125,6 @@ public class LineManager : MonoBehaviour
                 yield return null;
             }
         }
-        lineDrawn?.Invoke();
     }
 
     IEnumerator animateLinesBackward()
