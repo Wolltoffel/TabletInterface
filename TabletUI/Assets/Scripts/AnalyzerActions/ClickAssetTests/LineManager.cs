@@ -2,19 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class LineManager : MonoBehaviour
 {
+    [Header ("Importables")]
     [SerializeField] LineRenderer lineRenderer;
+    [SerializeField] Canvas canvas;
     [SerializeField] Transform[] vertex;
     Vector3[] vertexPositions;
+
+    [Header ("Attributes")]
     [SerializeField] float animationDuration;
     [SerializeField] float distanceToCamera;
-    [SerializeField] Canvas canvas;
     [SerializeField] float ledgeOffset;
-    [SerializeField] float drawLine;
-    [SerializeField] UnityEvent lineDrawn;
+
+    [Header("ManualLineRenderer")]
+    Vector3[] currentList;
+    [SerializeField] bool activateDrawLine;
+    [SerializeField][Range(0,1)] float drawLine;
+
 
     private void Awake()
     {
@@ -26,11 +35,16 @@ public class LineManager : MonoBehaviour
 
     private void Start()
     {
-        StartForwardAnimation();
+        //StartForwardAnimation();
+        //animateLinesForwardManual();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
+        if (activateDrawLine)
+        {
+            animateLinesForwardManual();
+        }
     }
 
     private void OnDrawGizmos()
@@ -111,7 +125,6 @@ public class LineManager : MonoBehaviour
                 yield return null;
             }
         }
-        lineDrawn?.Invoke();
     }
 
     IEnumerator animateLinesBackward()
@@ -122,7 +135,7 @@ public class LineManager : MonoBehaviour
             Vector3 start = vertexPositions[i];
             Vector3 target = vertexPositions[i - 1];
             Vector3 current = start;
-            Debug.Log(i);
+ 
             while (current != target)
             {
                 float t = (Time.time - startTime) / animationDuration;
@@ -134,8 +147,64 @@ public class LineManager : MonoBehaviour
 
                 yield return null;
             }
-            lineRenderer.positionCount--; ;
+            if (lineRenderer.positionCount != 0)
+            lineRenderer.positionCount--;
         }
     }
+
+    public void animateLinesForwardManual()
+       {
+        //DrawLine Berechnungen
+        float[] distancesToPrevious = new float[vertexPositions.Length];
+        float totalDistance=0;
+        
+        //Calculate Distances
+        for (int i = 1; i < vertexPositions.Length; i++)
+        {
+            distancesToPrevious[i] = Vector3.Distance(vertexPositions[i], vertexPositions[i - 1]);
+            totalDistance += distancesToPrevious[i];
+        }
+
+
+        Vector3[]currentList = new Vector3[vertexPositions.Length];
+        float totalDistanceLeft = totalDistance*drawLine;
+
+        //Set origin
+        if (vertex.Length > 0)
+            lineRenderer.SetPosition(0, vertexPositions[0]);
+
+
+        //Set Positions
+        for (int i = 1; i < vertexPositions.Length; i++)
+        {
+            Vector3 endPosition;
+            Vector3 direction = (vertexPositions[i] - vertexPositions[i - 1]).normalized;
+
+            if (distancesToPrevious[i] >= totalDistanceLeft)
+            {
+                float availableLength = totalDistanceLeft;
+                totalDistanceLeft = 0;
+                endPosition = vertexPositions[i-1] + direction * availableLength;
+
+                if (lineRenderer.positionCount<i+1)
+                    lineRenderer.positionCount++;
+                lineRenderer.SetPosition(i, endPosition);
+                lineRenderer.positionCount = i+1;
+                break;
+            }
+
+            else
+            {
+                totalDistanceLeft -= distancesToPrevious[i];
+                endPosition = vertexPositions[i - 1] + direction*distancesToPrevious[i];
+                if (lineRenderer.positionCount < i + 1)
+                    lineRenderer.positionCount++;
+                lineRenderer.SetPosition(i, endPosition);
+            }
+
+        }
+    }
+
 }
+
 

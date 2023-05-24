@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator Start()
     {
         //Check if a cable is plugged in
-        if (checkForCable.checkForChargingCable() && activeCableToggle)
+        if (checkForCable.checkForChargingCable() /*&& activeCableToggle*/)
         {
             screenManager.switchScreen("MainScreen");
         }

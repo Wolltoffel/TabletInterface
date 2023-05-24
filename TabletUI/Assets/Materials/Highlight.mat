@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Highlight
-  m_Shader: {fileID: -6465566751694194690, guid: 6401b3ff8f40e6d48b67bd01227b5681, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: cf6164198b99bdf4bb12a2ceafdfb544, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -82,7 +82,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_442a48de7aba439280d54c9471053bb8_Texture_1:
-        m_Texture: {fileID: 2800000, guid: 46d3dbb3d77c77741ae35abc68b8beb6, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_dc03b6fad571425ebf20ae7e352219a7_Texture_1:
@@ -139,7 +139,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _Float: 2.36
+    - _Float: 1.68
     - _FresnelPower: 1
     - _GlitchSpeed: 5
     - _GlossMapScale: 0
@@ -159,13 +159,14 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _Transparency: 1
     - _UVSec: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1.9294118, g: 0.07058824, b: 0.047058824, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 4.5412054, g: 1.260125, b: 0.6657264, a: 1}
     - _FresnelColor: {r: 7.247059, g: 0.7843137, b: 0.7843137, a: 0}
     - _HologramTextureTiling: {r: 1, g: 2, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
