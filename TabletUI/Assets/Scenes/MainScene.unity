@@ -778,6 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fae641f225e8a49907b0c05ce1800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &426972070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c89c86e1fea13840b098b50797707a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   paramterName: index
 --- !u!114 &963194232
 MonoBehaviour:
@@ -1604,7 +1606,7 @@ MonoBehaviour:
   clickables: []
   clickEvents: []
   onActive: 1
-  animationManagers: []
+  animationSequenceLists: []
 --- !u!4 &1049730590
 Transform:
   m_ObjectHideFlags: 0
@@ -1899,9 +1901,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   onActive: 1
-  animationManagers:
-  - list: []
-  - list: []
+  animationSequenceLists:
+  - animatinSequences: []
+  - animatinSequences:
+    - {fileID: 963194231}
+    - {fileID: 1605752185}
+  - animatinSequences: []
 --- !u!4 &1341187045
 Transform:
   m_ObjectHideFlags: 0
@@ -2809,6 +2814,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fae641f225e8a49907b0c05ce1800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1 &1708306839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3093,6 +3099,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9fae641f225e8a49907b0c05ce1800e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &1878368679
 PrefabInstance:
   m_ObjectHideFlags: 0

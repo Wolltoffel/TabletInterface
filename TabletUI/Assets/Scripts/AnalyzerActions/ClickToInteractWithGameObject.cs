@@ -11,18 +11,19 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     [HideInInspector] public int index;
     UnityEvent<int> eventToExecute;
     public static int activeIndex = 0;
-    IAnimationManager[] animationManagers;
+    AnimationSequenceList animationSequenceList;
 
     public void OnPointerDown(PointerEventData eventData)
     {
         activeIndex = index;
+        StartCoroutine(animationSequenceList.startAnimationSequence(index));
     }
 
-    public void InsertSetUpData(int index, UnityEvent<int> hoverEvent, IAnimationManager[] animationManagers)
+    public void InsertSetUpData(int index, UnityEvent<int> hoverEvent, AnimationSequenceList animationSequenceList)
     {
         this.index = index;
         this.eventToExecute = hoverEvent;
-        this.animationManagers = animationManagers;
+        this.animationSequenceList = animationSequenceList;
     }
 
     

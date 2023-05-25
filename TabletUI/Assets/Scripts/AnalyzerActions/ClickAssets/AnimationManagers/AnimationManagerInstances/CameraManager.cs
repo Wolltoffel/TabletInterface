@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour, IAnimationManager
+public class CameraManager : AnimationSequence
 {
-    Animator animator;
     [SerializeField]string paramterName;
     bool zoomedIn;
 
@@ -13,7 +12,7 @@ public class CameraManager : MonoBehaviour, IAnimationManager
         animator = GetComponent<Animator>();
     }
 
-    public float PlayAnimation(int index)
+    public override float PlayAnimation(int index)
     {
         if (!zoomedIn)
         {

@@ -4,9 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class ButtonAnimations : MonoBehaviour, IAnimationManager
+public class ButtonAnimations : AnimationSequence
 {
-    Animator animator;
     ClickToInteractWithGameObject clickToInteract;
 
     private void Start()
@@ -15,7 +14,7 @@ public class ButtonAnimations : MonoBehaviour, IAnimationManager
         clickToInteract = GetComponentInChildren<ClickToInteractWithGameObject>();
     }
 
-    public float PlayAnimation(int index)
+    public override float PlayAnimation(int index)
     {
        if (clickToInteract!=null) 
         { 
