@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
 
-
 public class ClickData : MonoBehaviour
 {
     [SerializeField]GameObject[] clickables; //Saves Clickable Objects / each button
@@ -26,11 +25,8 @@ public class ClickData : MonoBehaviour
         for (int i = 0; i < clickables.Length; i++)
         {
             var script  = clickables[i].AddComponent<ClickToInteractWithGameObject>();
-            script.InsertSetUpData(i,animationSequenceLists[i]);
+            script.InsertSetUpData(i,animationSequenceLists[i],backButton);
         }
-        
-        backButton.insertData(animationSequenceLists);
-
     }
 
     public void silenceCurrentButtons() {
