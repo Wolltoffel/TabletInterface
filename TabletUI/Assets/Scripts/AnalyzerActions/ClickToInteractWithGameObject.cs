@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEditor;
+using System;
 
 
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
     [HideInInspector] public int index;
-    public static int activeIndex = 0;
+    public static int activeIndex;
     AnimationSequenceList animationSequenceList;
     BackButton backButton;
 
@@ -17,6 +18,7 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     {
         activeIndex = index;
         StartCoroutine(handleAction());
+
     }
 
     IEnumerator handleAction()
@@ -26,7 +28,7 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
             yield return animationSequenceList.animationSequences[i].startAnimationSequence(index);
         }
 
-        backButton.updateData(animationSequenceList.animationSequences);
+        backButton.updateData(reverseAnimationOrder());
 
     }
 
@@ -35,6 +37,17 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         this.index = index;
         this.animationSequenceList = animationSequenceList;
         this.backButton = backButton;
+    }
+
+    AnimationSequence[] reverseAnimationOrder()
+    {
+        AnimationSequence[] forward = animationSequenceList.animationSequences;
+        AnimationSequence[] reversed = new AnimationSequence[forward.Length];
+        Array.Copy(forward,reversed,forward.Length);
+
+        Array.Reverse(reversed);
+
+        return reversed;
     }
 
     

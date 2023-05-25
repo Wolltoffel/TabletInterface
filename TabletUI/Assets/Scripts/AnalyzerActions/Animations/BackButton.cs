@@ -17,6 +17,8 @@ public class BackButton : MonoBehaviour
         {
             StartCoroutine(animationSequenceList[i].startAnimationSequence(0));
         }
+        ClickToInteractWithGameObject.activeIndex = 0;
+
     }
 
 }
