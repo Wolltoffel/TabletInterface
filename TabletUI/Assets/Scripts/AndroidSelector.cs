@@ -18,9 +18,9 @@ public class AndroidSelector : MonoBehaviour
         this.clickables.AddRange (clickables);
     }
 
-    public void NoteDownInteraction(HoverInformation hoverInformation)
+    public void NoteDownInteraction(int hoverInformation)
     {
-        int index = hoverInformation.index;
+        int index = hoverInformation;
 
         //Check whether the button is already in list
         for (int i = 0;i<visitedClickables.Count;i++)

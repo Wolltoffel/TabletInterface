@@ -3,20 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEditor;
+
 
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
-     HoverInformation hoverInfo;
-     UnityEvent<HoverInformation> hoverEvent;
+    [HideInInspector] public int index;
+    UnityEvent<int> eventToExecute;
+    public static int activeIndex = 0;
+    IAnimationManager[] animationManagers;
 
-    public void OnPointerDown (PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        hoverEvent?.Invoke(hoverInfo);
+        activeIndex = index;
     }
 
-    public void InsertSetUpData(HoverInformation hoverInfo, UnityEvent<HoverInformation> hoverEvent)
+    public void InsertSetUpData(int index, UnityEvent<int> hoverEvent, IAnimationManager[] animationManagers)
     {
-        this.hoverInfo = hoverInfo;
-        this.hoverEvent=hoverEvent;
+        this.index = index;
+        this.eventToExecute = hoverEvent;
+        this.animationManagers = animationManagers;
     }
-}
+
+    
+ }
+
+
+
+

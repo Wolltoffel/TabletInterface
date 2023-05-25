@@ -1,18 +1,38 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ButtonAnimations : MonoBehaviour
+[Serializable]
+public class ButtonAnimations : MonoBehaviour, IAnimationManager
 {
-    // Start is called before the first frame update
-    void Start()
+    Animator animator;
+    ClickToInteractWithGameObject clickToInteract;
+
+    private void Start()
     {
-        
+        animator = GetComponent<Animator>();
+        clickToInteract = GetComponentInChildren<ClickToInteractWithGameObject>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public float PlayAnimation(int index)
     {
-        
+       if (clickToInteract!=null) 
+        { 
+
+            if (clickToInteract.index == ClickToInteractWithGameObject.activeIndex)
+            {
+                animator.Play("FadeOut");
+                Debug.Log(gameObject.name + " has faded out");
+                ClickToInteractWithGameObject.activeIndex = 0;
+            }
+            else
+            {
+                animator.Play("FadeIn");
+                Debug.Log(gameObject.name + " has faded in");
+            }
+        }
+
+       return animator.GetCurrentAnimatorStateInfo(0).length;
     }
 }

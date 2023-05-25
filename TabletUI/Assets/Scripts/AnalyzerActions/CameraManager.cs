@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : MonoBehaviour, IAnimationManager
 {
     Animator animator;
     [SerializeField]string paramterName;
@@ -13,7 +13,7 @@ public class CameraManager : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public void PlayAnimation(int index)
+    public float PlayAnimation(int index)
     {
         if (!zoomedIn)
         {
@@ -26,7 +26,8 @@ public class CameraManager : MonoBehaviour
             animator.SetInteger(paramterName, 0);
             zoomedIn = false;
         }
-           
+
+        return animator.GetCurrentAnimatorStateInfo(0).length;
     }
 
 }

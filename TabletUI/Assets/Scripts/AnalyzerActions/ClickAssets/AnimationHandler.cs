@@ -9,12 +9,12 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField]UnityEvent loadingScreen;
     [SerializeField] UnityEvent<int> closeUp;
 
-    void StartLoadingScreenAnimations()
+    public void StartLoadingScreenAnimations()
     {
         loadingScreen?.Invoke();
     }
 
-    void StartCloseUpAnimations(int index)
+    public void StartCloseUpAnimations(int index)
     {
         closeUp?.Invoke(index);
     }
