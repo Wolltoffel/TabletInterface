@@ -6,7 +6,7 @@ using UnityEngine.UIElements;
 
 public class HoverManager : MonoBehaviour
 {
-    [SerializeField]HoverSessionData[] hoverSessionData;
+    [SerializeField]ClickData[] hoverSessionData;
     [SerializeField] AndroidSelector androidSelector;
 
     private void Start()

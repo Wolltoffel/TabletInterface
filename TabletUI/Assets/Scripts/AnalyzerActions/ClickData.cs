@@ -7,13 +7,19 @@ using UnityEngine.Events;
 using UnityEngine.UIElements;
 
 
-public class HoverSessionData : MonoBehaviour
+public class ClickData : MonoBehaviour
 {
     [SerializeField]GameObject[] clickables; //Saves Clickable Objects / each button
-    [SerializeField]UnityEvent<int>[] clickEvents; //Saves Unity Events for each button
     public bool onActive = true;
 
+    [SerializeField]BackButton backButton;
+
     public AnimationSequenceList[] animationSequenceLists;
+
+    private void Start()
+    {
+        //backButton.clicked += 
+    }
 
     public GameObject[] giveClickables()
     {
@@ -25,7 +31,7 @@ public class HoverSessionData : MonoBehaviour
         for (int i = 0; i < clickables.Length; i++)
         {
             var script  = clickables[i].AddComponent<ClickToInteractWithGameObject>();
-            script.InsertSetUpData(i, clickEvents[i], animationSequenceLists[i]);
+            script.InsertSetUpData(i,animationSequenceLists[i]);
         }
     }
 

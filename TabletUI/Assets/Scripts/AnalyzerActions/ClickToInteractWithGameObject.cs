@@ -9,7 +9,6 @@ using UnityEditor;
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
     [HideInInspector] public int index;
-    UnityEvent<int> eventToExecute;
     public static int activeIndex = 0;
     AnimationSequenceList animationSequenceList;
 
@@ -19,10 +18,9 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         StartCoroutine(animationSequenceList.startAnimationSequence(index));
     }
 
-    public void InsertSetUpData(int index, UnityEvent<int> hoverEvent, AnimationSequenceList animationSequenceList)
+    public void InsertSetUpData(int index, AnimationSequenceList animationSequenceList)
     {
         this.index = index;
-        this.eventToExecute = hoverEvent;
         this.animationSequenceList = animationSequenceList;
     }
 

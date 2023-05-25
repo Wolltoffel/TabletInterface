@@ -22,13 +22,11 @@ public class ButtonAnimations : AnimationSequence
             if (clickToInteract.index == ClickToInteractWithGameObject.activeIndex)
             {
                 animator.Play("FadeOut");
-                Debug.Log(gameObject.name + " has faded out");
                 ClickToInteractWithGameObject.activeIndex = 0;
             }
             else
             {
                 animator.Play("FadeIn");
-                Debug.Log(gameObject.name + " has faded in");
             }
         }
 
