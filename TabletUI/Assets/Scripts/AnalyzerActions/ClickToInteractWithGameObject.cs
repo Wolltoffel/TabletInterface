@@ -18,7 +18,6 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     {
         activeIndex = index;
         StartCoroutine(handleAction());
-
     }
 
     IEnumerator handleAction()
