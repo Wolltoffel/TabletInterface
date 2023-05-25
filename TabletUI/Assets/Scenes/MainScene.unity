@@ -1417,6 +1417,7 @@ GameObject:
   - component: {fileID: 979257528}
   - component: {fileID: 979257527}
   - component: {fileID: 979257526}
+  - component: {fileID: 979257529}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1489,13 +1490,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 979257529}
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: goBack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1539,6 +1540,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979257524}
   m_CullTransparentMesh: 1
+--- !u!114 &979257529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979257524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e8968870f4d5814a9fe7d95b2c96773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1036931819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1588,7 +1601,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1049730589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1602,8 +1615,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickables: []
-  clickEvents: []
   onActive: 1
+  backButton: {fileID: 979257529}
   animationSequenceLists: []
 --- !u!4 &1049730590
 Transform:
@@ -1831,81 +1844,15 @@ MonoBehaviour:
   - {fileID: 1727608380}
   - {fileID: 1605752179}
   - {fileID: 358045955}
-  clickEvents:
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 963194231}
-        m_TargetAssemblyTypeName: CameraManager, Assembly-CSharp
-        m_MethodName: PlayAnimation
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1459039260}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: Play
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: FadeIn
-          m_BoolArgument: 0
-        m_CallState: 2
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   onActive: 1
+  backButton: {fileID: 979257529}
   animationSequenceLists:
-  - animatinSequences: []
-  - animatinSequences:
+  - animationSequences: []
+  - animationSequences:
     - {fileID: 1605752185}
     - {fileID: 963194231}
     - {fileID: 1459039261}
-  - animatinSequences: []
+  - animationSequences: []
 --- !u!4 &1341187045
 Transform:
   m_ObjectHideFlags: 0

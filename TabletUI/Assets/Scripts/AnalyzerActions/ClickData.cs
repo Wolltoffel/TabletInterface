@@ -16,11 +16,6 @@ public class ClickData : MonoBehaviour
 
     public AnimationSequenceList[] animationSequenceLists;
 
-    private void Start()
-    {
-        //backButton.clicked += 
-    }
-
     public GameObject[] giveClickables()
     {
         return clickables;
@@ -33,6 +28,9 @@ public class ClickData : MonoBehaviour
             var script  = clickables[i].AddComponent<ClickToInteractWithGameObject>();
             script.InsertSetUpData(i,animationSequenceLists[i]);
         }
+        
+        backButton.insertData(animationSequenceLists);
+
     }
 
     public void silenceCurrentButtons() {

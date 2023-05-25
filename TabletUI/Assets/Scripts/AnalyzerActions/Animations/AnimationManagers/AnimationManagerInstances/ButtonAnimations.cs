@@ -18,7 +18,6 @@ public class ButtonAnimations : AnimationSequence
     {
        if (clickToInteract!=null) 
         { 
-
             if (clickToInteract.index == ClickToInteractWithGameObject.activeIndex)
             {
                 animator.Play("FadeOut");
