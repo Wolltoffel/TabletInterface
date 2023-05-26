@@ -8,6 +8,7 @@ public class HoverManager : MonoBehaviour
 {
     [SerializeField]ClickData[] hoverSessionData;
     [SerializeField] AndroidSelector androidSelector;
+    int activeHoverIndex;
 
     private void Start()
     {
@@ -19,14 +20,15 @@ public class HoverManager : MonoBehaviour
             if (hoverSessionData[i].onActive)
                 androidSelector.AddActiveHoverSessionData(hoverSessionData[i].giveClickables());
         }
+        activeHoverIndex = 0;
     }
 
-    void nextHoverSessionData(int index)
+    public void nextHoverSessionData()
     {
-        if (index > 0)
-            hoverSessionData[index - 1].silenceCurrentButtons();
+        if (activeHoverIndex > 0)
+            hoverSessionData[activeHoverIndex - 1].silenceCurrentButtons();
 
-        hoverSessionData[index].wakeUpCurrentButtons();
+        hoverSessionData[activeHoverIndex].wakeUpCurrentButtons();
     }
 
 }

@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     CheckForCable checkForCable = new CheckForCable();
     [SerializeField] bool activeCableToggle = false;
     [SerializeField] ScreenManager screenManager;
+    [SerializeField] HoverManager hoverManager;
 
     int cablePollingRate = 1;
 
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(cablePollingRate);
 
         //if last button pressed
+        //AndroidSelector.instance.SwitchToNextAction
 
   
         yield return Start();

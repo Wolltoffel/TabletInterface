@@ -6,9 +6,18 @@ public class AndroidSelector : MonoBehaviour
 {
     List<GameObject> clickables;
     List<GameObject> visitedClickables;
+    public static AndroidSelector instance;
+    HoverManager hoverManager;
 
     private void Awake()
     {
+        if (instance != this)
+        {
+            Destroy(instance);
+            instance = this;
+        }
+
+
         clickables = new List<GameObject>();
         visitedClickables = new List<GameObject>();
     }
@@ -34,11 +43,12 @@ public class AndroidSelector : MonoBehaviour
         visitedClickables.Add(clickables[index]);
 
         if (visitedClickables.Count >= clickables.Count)
-            SwitchToNextAction();
+            SwitchToNextAndroid();
 
     }
 
-    void SwitchToNextAction() {
-        Debug.Log("All Places visited");
+    void SwitchToNextAndroid() {
+        hoverManager.nextHoverSessionData();
     }
+
 }
