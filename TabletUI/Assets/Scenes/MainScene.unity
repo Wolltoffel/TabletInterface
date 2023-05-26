@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: f220d5811087d7d49a0ce71b43294bb7, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: e9784fc05193c3443b6f100f4f474262, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1424,7 +1424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &979257525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2205,7 +2205,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1459039255}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 963194227}
@@ -2504,7 +2504,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1550933167
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2523,8 +2523,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -93, y: -53.384125}
-  m_SizeDelta: {x: 1022.998, y: 700}
+  m_AnchoredPosition: {x: -93, y: 77.466}
+  m_SizeDelta: {x: 994.39, y: 961.7}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1550933168
 MonoBehaviour:
@@ -3129,7 +3129,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
       propertyPath: m_Materials.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3138,7 +3138,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 7099e30342118024e982a017d358c276, type: 2}
+      objectReference: {fileID: 2100000, guid: e1e143a1cf66f8842b327085918b9312, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
       propertyPath: m_Name
       value: Human Model

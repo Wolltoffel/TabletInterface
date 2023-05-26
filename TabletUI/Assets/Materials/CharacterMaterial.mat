@@ -106,7 +106,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_554e14cc98c04f3a98e1f37956ecf23a_Out_0:
-        m_Texture: {fileID: 2800000, guid: 4ecec88757b47444dba2c460208e61dc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8660ec74f670e644c995abf296aa9676, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_974531d0a8e34e55abf59655a93bc7af_Out_0:
@@ -141,10 +141,11 @@ Material:
     m_Floats:
     - _ActivateAnimation: 1
     - _AlphaClip: 0
-    - _AnimationSpeed: 0
+    - _AnimationSpeed: 0.2
     - _AnimationVector: 0
     - _Blend: 0
     - _BumpScale: 1
+    - _CastShadows: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -154,14 +155,14 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _Float: 0
-    - _FresnelPower: 1
+    - _FresnelPower: 5
     - _GlitchSpeed: 5
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
-    - _OutFactor: 0.2
+    - _OutFactor: 0
     - _Parallax: 0.005
     - _QueueControl: 1
     - _QueueOffset: 50
@@ -173,13 +174,15 @@ Material:
     - _SrcBlend: 1
     - _Surface: 0
     - _WorkflowMode: 1
+    - _ZTest: 4
     - _ZWrite: 1
+    - _ZWriteControl: 0
     m_Colors:
-    - _BaseColor: {r: 0.16862746, g: 0.39607844, b: 0.5019608, a: 1}
+    - _BaseColor: {r: 0.16386835, g: 0.8466531, b: 1.167562, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ErrorColor: {r: 1024, g: 0, b: 0, a: 0}
-    - _FresnelColor: {r: 7.247059, g: 0.7843137, b: 0.7843137, a: 0}
+    - _ErrorColor: {r: 1.3968369, g: 0, b: 0, a: 0}
+    - _FresnelColor: {r: 2.0620098, g: 0.47794932, b: 2.6082377, a: 0}
     - _HologramTextureTiling: {r: 1, g: 2, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Tiling: {r: 1, g: 2, b: 0, a: 0}

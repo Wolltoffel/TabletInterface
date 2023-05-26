@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class TypeWriterText : MonoBehaviour
 {
     [SerializeField][Range (0,1)]float typeProgress;
-    TextMeshProUGUI tmpPro;
-
+    TextMeshProUGUI tmpPro; 
     IEnumerator Start()
     {
+        Debug.Log("test1");
         tmpPro = GetComponent<TextMeshProUGUI>();
 
         yield return new WaitForEndOfFrame();
@@ -21,9 +22,13 @@ public class TypeWriterText : MonoBehaviour
             int typeProgressInt = (int)Mathf.Round(typeProgress * 100);
             int visibleCount = typeProgressInt * totalVisibleCharacters/100;
             tmpPro.maxVisibleCharacters = visibleCount;
+            Debug.Log ("test");
             yield return null;
         }
+    }
 
-
+    private void OnEnable()
+    {
+        StartCoroutine(Start());
     }
 }
