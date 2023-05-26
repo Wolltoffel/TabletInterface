@@ -21,5 +21,13 @@ public class HoverManager : MonoBehaviour
         }
     }
 
+    void nextHoverSessionData(int index)
+    {
+        if (index > 0)
+            hoverSessionData[index - 1].silenceCurrentButtons();
+
+        hoverSessionData[index].wakeUpCurrentButtons();
+    }
+
 }
 

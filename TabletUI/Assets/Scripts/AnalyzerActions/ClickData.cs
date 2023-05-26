@@ -38,4 +38,14 @@ public class ClickData : MonoBehaviour
             onActive = false;
         }
     }
+
+    public void wakeUpCurrentButtons()
+    {
+        for (int i = 0; i < clickables.Length; i++)
+        {
+            var script = clickables[i].GetComponent<ClickToInteractWithGameObject>();
+            script.enabled = true;
+            onActive = true;
+        }
+    }
 }

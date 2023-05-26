@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
             screenManager.switchScreen("DisconnectScreen");
         
         yield return new WaitForSeconds(cablePollingRate);
+
+        //if last button pressed
+
   
         yield return Start();
     }
