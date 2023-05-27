@@ -10,7 +10,6 @@ public class TypeWriterText : MonoBehaviour
     TextMeshProUGUI tmpPro; 
     IEnumerator Start()
     {
-        Debug.Log("test1");
         tmpPro = GetComponent<TextMeshProUGUI>();
 
         yield return new WaitForEndOfFrame();
@@ -22,7 +21,6 @@ public class TypeWriterText : MonoBehaviour
             int typeProgressInt = (int)Mathf.Round(typeProgress * 100);
             int visibleCount = typeProgressInt * totalVisibleCharacters/100;
             tmpPro.maxVisibleCharacters = visibleCount;
-            Debug.Log ("test");
             yield return null;
         }
     }

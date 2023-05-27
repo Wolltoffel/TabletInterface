@@ -14,20 +14,30 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     AnimationSequenceList animationSequenceList;
     BackButton backButton;
 
+    void Start()
+    {
+        for (int i = 0; i < animationSequenceList.animationSequences.Length; i++)
+        {
+            if (animationSequenceList.animationSequences[i] is ButtonAnimations) {
+                animationSequenceList.animationSequences[i].PlayAnimation(index);
+            }
+        }
+    }
+
     public void OnPointerDown(PointerEventData eventData)
     {
         activeIndex = index;
-        StartCoroutine(handleAction());
+        StartCoroutine(HandleAction());
     }
 
-    IEnumerator handleAction()
+    IEnumerator HandleAction()
     {
         for (int i = 0; i < animationSequenceList.animationSequences.Length; i++)
         {
             yield return animationSequenceList.animationSequences[i].startAnimationSequence(index);
         }
 
-        backButton.updateData(reverseAnimationOrder());
+        backButton.updateData(ReverseAnimationOrder());
 
     }
 
@@ -38,7 +48,7 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         this.backButton = backButton;
     }
 
-    AnimationSequence[] reverseAnimationOrder()
+    AnimationSequence[] ReverseAnimationOrder()
     {
         AnimationSequence[] forward = animationSequenceList.animationSequences;
         AnimationSequence[] reversed = new AnimationSequence[forward.Length];

@@ -22,10 +22,12 @@ public class ButtonAnimations : AnimationSequence
             {
                 animator.Play("FadeOut");
                 ClickToInteractWithGameObject.activeIndex = 0;
+                Debug.Log("1 FadeOut button" + gameObject.name);
             }
             else
             {
                 animator.Play("FadeIn");
+                Debug.Log("1 FadeIn Button" + gameObject.name);
             }
         }
 
