@@ -5,7 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEditor;
 using System;
-
+using Unity.VisualScripting;
 
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
@@ -13,9 +13,12 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
     static int activeIndex;
     AnimationSequenceList animationSequenceList;
     BackButton backButton;
+    AnimationSequenceList exitZoomAnimations;
 
-    void Start()
+   IEnumerator Start()
     {
+        yield return null;
+        yield return null;
         for (int i = 0; i < animationSequenceList.animationSequences.Length; i++)
         {
             if (animationSequenceList.animationSequences[i] is ButtonAnimations) {
@@ -32,20 +35,36 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 
     IEnumerator HandleAction()
     {
+
+        //Build Animation list for Backbutton
+        List<AnimationSequence> backButtonList = new List<AnimationSequence>();
+
+        backButtonList.AddRange(ReverseAnimationOrder());
+        backButtonList.AddRange(exitZoomAnimations.animationSequences);
+        backButton.updateData(backButtonList.ToArray());
+        //HoverManager.instance.deactivateAllColliders();
+
+        for (int i = 0; i < exitZoomAnimations.animationSequences.Length; i++)
+        {
+            exitZoomAnimations.animationSequences[i].startAnimationSequenceWithoutDelay(index);
+        }
+
         for (int i = 0; i < animationSequenceList.animationSequences.Length; i++)
         {
             yield return animationSequenceList.animationSequences[i].startAnimationSequence(index);
         }
 
-        backButton.updateData(ReverseAnimationOrder());
+
+        HoverManager.instance.activateAllColliders();
 
     }
 
-    public void InsertSetUpData(int index, AnimationSequenceList animationSequenceList, BackButton backButton)
+    public void InsertSetUpData(int index, AnimationSequenceList animationSequenceList, BackButton backButton, AnimationSequenceList exitZoomAnimations)
     {
         this.index = index;
         this.animationSequenceList = animationSequenceList;
         this.backButton = backButton;
+        this.exitZoomAnimations = exitZoomAnimations;
     }
 
     AnimationSequence[] ReverseAnimationOrder()

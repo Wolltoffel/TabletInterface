@@ -18,7 +18,7 @@ public class BackButton : MonoBehaviour
 
         for (int i = 0; i < animationSequenceList.Length; i++)
         {
-            StartCoroutine(animationSequenceList[i].startAnimationSequence(0));
+            StartCoroutine(animationSequenceList[i].startAnimationSequence(index));
         }
     }
 

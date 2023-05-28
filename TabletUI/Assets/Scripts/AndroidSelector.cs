@@ -17,7 +17,6 @@ public class AndroidSelector : MonoBehaviour
             instance = this;
         }
 
-
         clickables = new List<GameObject>();
         visitedClickables = new List<GameObject>();
     }
@@ -27,20 +26,18 @@ public class AndroidSelector : MonoBehaviour
         this.clickables.AddRange (clickables);
     }
 
-    public void NoteDownInteraction(int hoverInformation)
+    public void NoteDownInteraction(int index)
     {
-        int index = hoverInformation;
-
         //Check whether the button is already in list
         for (int i = 0;i<visitedClickables.Count;i++)
         {
-            if (visitedClickables[i] == clickables[index]) {
+            if (visitedClickables[i] == clickables[index-1]) 
+            {
                 return;
             }
         }
-
         //Add Button to visitedButtons
-        visitedClickables.Add(clickables[index]);  
+        visitedClickables.Add(clickables[0]);  
     }
 
     public int GiveInteractionNumber()

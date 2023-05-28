@@ -798,6 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 1
 --- !u!95 &389258765
 Animator:
   serializedVersion: 5
@@ -873,9 +874,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a2d05e8523857e4e9b4eba05d81b879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeCableToggle: 0
   screenManager: {fileID: 2097617013}
-  hoverManager: {fileID: 0}
 --- !u!1 &452034735
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,7 +963,7 @@ MonoBehaviour:
   - {fileID: 2133500141}
   - {fileID: 1050385979}
   distanceToCamera: 1
-  ledgeOffset: 0.5
+  ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
   animationDuration: 0.5
@@ -1117,7 +1116,7 @@ MonoBehaviour:
   - {fileID: 824053174}
   - {fileID: 1586998054}
   distanceToCamera: 1
-  ledgeOffset: 0.5
+  ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
   animationDuration: 0.5
@@ -1276,7 +1275,7 @@ GameObject:
   m_Component:
   - component: {fileID: 599928106}
   m_Layer: 3
-  m_Name: 1. Adnroid Highlights
+  m_Name: Android I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1910,6 +1909,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 1
 --- !u!95 &824053176
 Animator:
   serializedVersion: 5
@@ -2149,6 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 0
 --- !u!95 &925651037
 Animator:
   serializedVersion: 5
@@ -2536,7 +2537,6 @@ MonoBehaviour:
   onActive: 1
   backButton: {fileID: 979257529}
   animationSequenceLists:
-  - animationSequences: []
   - animationSequences:
     - {fileID: 1471122117}
     - {fileID: 963194231}
@@ -2549,6 +2549,11 @@ MonoBehaviour:
     - {fileID: 925651036}
     - {fileID: 963194231}
     - {fileID: 1459039261}
+  exitZoomAnimations:
+    animationSequences:
+    - {fileID: 1471122117}
+    - {fileID: 824053175}
+    - {fileID: 925651036}
 --- !u!1 &979257524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2782,7 +2787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1009264226}
   m_Layer: 3
-  m_Name: '2. Adnroid Highlights '
+  m_Name: Android II
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3366,7 +3371,6 @@ MonoBehaviour:
   onActive: 1
   backButton: {fileID: 979257529}
   animationSequenceLists:
-  - animationSequences: []
   - animationSequences:
     - {fileID: 1605752185}
     - {fileID: 963194231}
@@ -3379,6 +3383,11 @@ MonoBehaviour:
     - {fileID: 389258764}
     - {fileID: 963194231}
     - {fileID: 1459039261}
+  exitZoomAnimations:
+    animationSequences:
+    - {fileID: 389258764}
+    - {fileID: 2133500142}
+    - {fileID: 1605752185}
 --- !u!4 &1341187045
 Transform:
   m_ObjectHideFlags: 0
@@ -3809,7 +3818,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424795227}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ed64e2a66f134d43adba788bc66df1a, type: 3}
+  m_Script: {fileID: 11500000, guid: d94b74ce543c7db4abf9d9c692ecacad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hoverSessionData:
@@ -4065,6 +4074,39 @@ MonoBehaviour:
     dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
     ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
     et justo duo'
+  - 'infotext 2
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd gubergren, no sea takimata sanctus est Lorem ssss
+
+    Lorem ipsum
+    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+    et justo duo'
+  - 'infotext 2
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd gubergren, no sea takimata sanctus est Lorem ssss
+
+    Lorem ipsum
+    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+    et justo duo'
+  - 'infotext 2
+
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed
+    diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet
+    clita kasd gubergren, no sea takimata sanctus est Lorem ssss
+
+    Lorem ipsum
+    dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+    ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam
+    et justo duo'
   infoTextComponent: {fileID: 17258804}
 --- !u!1 &1471122115
 GameObject:
@@ -4115,6 +4157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 0
 --- !u!95 &1471122118
 Animator:
   serializedVersion: 5
@@ -4755,6 +4798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 0
 --- !u!1 &1707132912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5479,7 +5523,7 @@ MonoBehaviour:
   - {fileID: 389258763}
   - {fileID: 2102877471}
   distanceToCamera: 1
-  ledgeOffset: 0.5
+  ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
   animationDuration: 0.5
@@ -6166,6 +6210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  animationDirection: 1
 --- !u!95 &2133500143
 Animator:
   serializedVersion: 5

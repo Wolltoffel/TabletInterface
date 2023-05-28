@@ -14,6 +14,8 @@ public class CameraManager : AnimationSequence
 
     public override float PlayAnimation(int index)
     {
+        index = HoverManager.instance.GetActiveAndroidIndex() * 3 + index;
+
         if (!zoomedIn)
         {
             animator.SetInteger(paramterName, index);

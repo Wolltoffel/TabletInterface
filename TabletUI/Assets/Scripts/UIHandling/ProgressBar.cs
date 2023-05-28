@@ -33,7 +33,6 @@ public class ProgressBar : MonoBehaviour
                 {
                     //Animate Slider over time
                     float t = (Time.time - startTime) / animationDuration;
-                    Debug.Log(t);
                     current = Mathf.Lerp(sliderValue, progressValue, t);
                     progressSlider.value = current;
                     yield return null;

@@ -8,36 +8,46 @@ public class ButtonAnimations : AnimationSequence
 {
     ClickToInteractWithGameObject clickToInteract;
     bool visible;
+    enum AnimationDirection {
+        left,right
+    }
+    Collider collider;
 
-    private void Start()
+    [SerializeField]AnimationDirection animationDirection;
+
+    private IEnumerator Start()
     {
+        yield return null;
+        yield return null;
         animator = GetComponent<Animator>();
-        clickToInteract = GetComponentInChildren<ClickToInteractWithGameObject>();
+        clickToInteract = GetComponent<ClickToInteractWithGameObject>();
     }
 
     public override float PlayAnimation(int index)
     {
-       if (clickToInteract!=null) 
-        { 
+
+        if (clickToInteract!=null) 
+        {
+
             if (visible)
             {
-                if(index == 1 || index == 4 || index == 6)
+                if(animationDirection == AnimationDirection.left)
                     animator.Play("1 FadeOut");
                 else
                     animator.Play("2 FadeOut");
                 visible = false;
+
             }
             else
             {
-                if (index == 1 || index == 4 || index == 6)
+
+                if (animationDirection == AnimationDirection.left)
                     animator.Play("1 FadeIn");
                 else
                     animator.Play("2 FadeIn");
-
                 visible = true;
             }
         }
-
-       return animator.GetCurrentAnimatorStateInfo(0).length;
+        return 0;
     }
 }

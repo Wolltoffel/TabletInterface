@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
@@ -15,6 +16,8 @@ public class ClickData : MonoBehaviour
 
     public AnimationSequenceList[] animationSequenceLists;
 
+    public AnimationSequenceList exitZoomAnimations;
+
     public GameObject[] giveClickables()
     {
         return clickables;
@@ -25,7 +28,7 @@ public class ClickData : MonoBehaviour
         for (int i = 0; i < clickables.Length; i++)
         {
             var script  = clickables[i].AddComponent<ClickToInteractWithGameObject>();
-            script.InsertSetUpData(i,animationSequenceLists[i],backButton);
+            script.InsertSetUpData(i+1,animationSequenceLists[i],backButton,exitZoomAnimations);
         }
     }
 
@@ -36,6 +39,7 @@ public class ClickData : MonoBehaviour
             var script = clickables[i].GetComponent<ClickToInteractWithGameObject>();
             script.enabled = false;
             onActive = false;
+            clickables[i].SetActive(false);
         }
     }
 
@@ -46,6 +50,18 @@ public class ClickData : MonoBehaviour
             var script = clickables[i].GetComponent<ClickToInteractWithGameObject>();
             script.enabled = true;
             onActive = true;
+            clickables[i].SetActive(true);
         }
     }
+
+    public List<Collider> GiveColliders()
+    {
+        List<Collider> list = new List<Collider>();
+        for (int i = 0; i < clickables.Length; i++)
+        {
+            list.Add(clickables[i].GetComponentInChildren<Collider>());
+        }
+        return list;
+    }
+
 }

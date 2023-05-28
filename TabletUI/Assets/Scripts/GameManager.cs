@@ -8,42 +8,57 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     CheckForCable checkForCable = new CheckForCable();
-    [SerializeField] bool activeCableToggle = false;
     [SerializeField] ScreenManager screenManager;
-    [SerializeField] HoverManager hoverManager;
+    HoverManager hoverManager;
     AndroidSelector androidSelector;
+    bool cablePluggedIn;
 
     int cablePollingRate = 1;
 
     private IEnumerator Start()
     {
         androidSelector = AndroidSelector.instance;
+        hoverManager = HoverManager.instance;
 
-        //Check if a cable is plugged in
-        if (checkForCable.checkForChargingCable() /*&& activeCableToggle*/)
-        {
-            screenManager.switchScreen("MainScreen");
-        }
-            
-        else
-            screenManager.switchScreen("DisconnectScreen");
+        StartCoroutine (checkForCablePlug());
         
-        yield return new WaitForSeconds(cablePollingRate);
+        yield return null;
 
         if (androidSelector.CheckScreenSwitchDue())
         {
-            screenManager.switchScreen("UnplugScreen");
-            hoverManager.nextHoverSessionData();
-
-            //Reset all values
-            androidSelector.resetValues();
-            ClickToInteractWithGameObject.setActiveIndex(0);
+            SwitchToSecondAndroid();
+            yield break;
         }
 
-        //if last button pressed
+
+        yield return new WaitForSeconds(cablePollingRate);
+
+         //if last button pressed
         //AndroidSelector.instance.SwitchToNextAction
 
   
         yield return Start();
     }
+
+    IEnumerator checkForCablePlug()
+    {
+        while (cablePluggedIn == false)
+        {
+            if (checkForCable.checkForChargingCable())
+            {
+                screenManager.switchScreen("MainScreen");
+            }
+
+            else
+                screenManager.switchScreen("DisconnectScreen");
+
+            yield return new WaitForSeconds(cablePollingRate);
+        }
+    }
+
+    void SwitchToSecondAndroid()
+    {
+        hoverManager.nextHoverSessionData();
+    }
+  
 }

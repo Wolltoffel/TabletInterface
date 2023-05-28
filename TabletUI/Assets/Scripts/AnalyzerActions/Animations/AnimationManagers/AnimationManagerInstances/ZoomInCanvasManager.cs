@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using JetBrains.Annotations;
 
 public class ZoomInCanvasManager: AnimationSequence
 {
@@ -19,7 +20,7 @@ public class ZoomInCanvasManager: AnimationSequence
     public override float PlayAnimation(int index)
     { 
 
-        infoTextComponent.text = infoTexts[index];
+        infoTextComponent.text = infoTexts[index+1];
 
         if (fadedIn)
         {
