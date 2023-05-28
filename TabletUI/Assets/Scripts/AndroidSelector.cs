@@ -5,7 +5,7 @@ using UnityEngine;
 public class AndroidSelector : MonoBehaviour
 {
     List<GameObject> clickables;
-    List<GameObject> visitedClickables;
+    static List<GameObject> visitedClickables;
     public static AndroidSelector instance;
     HoverManager hoverManager;
 
@@ -40,15 +40,26 @@ public class AndroidSelector : MonoBehaviour
         }
 
         //Add Button to visitedButtons
-        visitedClickables.Add(clickables[index]);
+        visitedClickables.Add(clickables[index]);  
+    }
 
+    public int GiveInteractionNumber()
+    {
+        return visitedClickables.Count;
+    }
+
+    public bool CheckScreenSwitchDue()
+    {
         if (visitedClickables.Count >= clickables.Count)
-            SwitchToNextAndroid();
-
+            return true; 
+        return false;
     }
 
-    void SwitchToNextAndroid() {
-        hoverManager.nextHoverSessionData();
+    public void resetValues()
+    {
+        clickables.Clear();
+        visitedClickables.Clear();
     }
+
 
 }

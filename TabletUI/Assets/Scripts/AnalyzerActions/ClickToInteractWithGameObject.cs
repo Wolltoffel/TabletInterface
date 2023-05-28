@@ -10,7 +10,7 @@ using System;
 public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
     [HideInInspector] public int index;
-    public static int activeIndex;
+    static int activeIndex;
     AnimationSequenceList animationSequenceList;
     BackButton backButton;
 
@@ -57,6 +57,16 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         Array.Reverse(reversed);
 
         return reversed;
+    }
+
+    public static void setActiveIndex(int index)
+    {
+        activeIndex = index;
+    }
+
+    public static int getActiveIndex()
+    {
+        return activeIndex;
     }
 
     

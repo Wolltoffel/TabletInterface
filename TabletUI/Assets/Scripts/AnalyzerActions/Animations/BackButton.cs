@@ -12,9 +12,9 @@ public class BackButton : MonoBehaviour
     }
     public void goBack()
     {
-        int index =  ClickToInteractWithGameObject.activeIndex;
+        int index =  ClickToInteractWithGameObject.getActiveIndex();
         AndroidSelector.instance.NoteDownInteraction(index);
-        ClickToInteractWithGameObject.activeIndex = 0;
+        ClickToInteractWithGameObject.setActiveIndex(index);
 
         for (int i = 0; i < animationSequenceList.Length; i++)
         {

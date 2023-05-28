@@ -9,6 +9,7 @@ public class ZoomInCanvasManager: AnimationSequence
     [TextArea]
     [SerializeField] string[] infoTexts;
     [SerializeField]TextMeshProUGUI infoTextComponent ;
+    bool fadedIn;
 
     private void Start()
     {
@@ -20,16 +21,15 @@ public class ZoomInCanvasManager: AnimationSequence
 
         infoTextComponent.text = infoTexts[index];
 
-        if (index == ClickToInteractWithGameObject.activeIndex)
+        if (fadedIn)
         {
             animator.Play("FadeOut");
-            ClickToInteractWithGameObject.activeIndex = 0;
-            Debug.Log("3 Fade Out Canvas");
+            fadedIn = false;
         }
         else
         {
+            fadedIn = true;
             animator.Play("FadeIn");
-            Debug.Log("3 Fade In Canvs");
         }
         
 

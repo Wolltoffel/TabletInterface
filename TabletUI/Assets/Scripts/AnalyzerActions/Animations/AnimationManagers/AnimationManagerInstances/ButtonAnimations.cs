@@ -7,6 +7,7 @@ using UnityEngine;
 public class ButtonAnimations : AnimationSequence
 {
     ClickToInteractWithGameObject clickToInteract;
+    bool visible;
 
     private void Start()
     {
@@ -18,16 +19,15 @@ public class ButtonAnimations : AnimationSequence
     {
        if (clickToInteract!=null) 
         { 
-            if (clickToInteract.index == ClickToInteractWithGameObject.activeIndex)
+            if (visible)
             {
                 animator.Play("FadeOut");
-                ClickToInteractWithGameObject.activeIndex = 0;
-                Debug.Log("1 FadeOut button" + gameObject.name);
+                visible = false;
             }
             else
             {
                 animator.Play("FadeIn");
-                Debug.Log("1 FadeIn Button" + gameObject.name);
+                visible = true;
             }
         }
 

@@ -15,7 +15,6 @@ public class LineManager : MonoBehaviour
     Vector3[] vertexPositions;
 
     [Header ("Attributes")]
-    [SerializeField] float animationDuration;
     [SerializeField] float distanceToCamera;
     [SerializeField] float ledgeOffset;
 
@@ -23,6 +22,9 @@ public class LineManager : MonoBehaviour
     Vector3[] currentList;
     [SerializeField] bool activateDrawLine;
     [SerializeField][Range(0,1)] float drawLine;
+
+    [Header ("Courutine Renderer")]
+    [SerializeField] float animationDuration;
 
 
     private void Awake()
@@ -164,7 +166,6 @@ public class LineManager : MonoBehaviour
             distancesToPrevious[i] = Vector3.Distance(vertexPositions[i], vertexPositions[i - 1]);
             totalDistance += distancesToPrevious[i];
         }
-
 
         Vector3[]currentList = new Vector3[vertexPositions.Length];
         float totalDistanceLeft = totalDistance*drawLine;
