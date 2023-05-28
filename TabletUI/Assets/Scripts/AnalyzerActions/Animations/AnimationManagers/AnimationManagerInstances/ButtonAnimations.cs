@@ -21,12 +21,19 @@ public class ButtonAnimations : AnimationSequence
         { 
             if (visible)
             {
-                animator.Play("FadeOut");
+                if(index == 1 || index == 4 || index == 6)
+                    animator.Play("1 FadeOut");
+                else
+                    animator.Play("2 FadeOut");
                 visible = false;
             }
             else
             {
-                animator.Play("FadeIn");
+                if (index == 1 || index == 4 || index == 6)
+                    animator.Play("1 FadeIn");
+                else
+                    animator.Play("2 FadeIn");
+
                 visible = true;
             }
         }
