@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : AnimationPlayer
+public class CameraAnimations : AnimationPlayer
 {
     [SerializeField]string paramterName;
     bool zoomedIn;
@@ -12,9 +12,9 @@ public class CameraManager : AnimationPlayer
         animator = GetComponent<Animator>();
     }
 
-    public override float PlayAnimation(int index)
+    public override void PlayAnimation(int index)
     {
-        index = PresetSelector.instance.GetActiveAndroidIndex() * 3 + index;
+        index = GameManager.GiveActivePresetIndex() * 3 + index;
 
         if (!zoomedIn)
         {
@@ -27,8 +27,6 @@ public class CameraManager : AnimationPlayer
             animator.SetInteger(paramterName, 0);
             zoomedIn = false;
         }
-
-        return animator.GetCurrentAnimatorStateInfo(0).length;
     }
 
 }

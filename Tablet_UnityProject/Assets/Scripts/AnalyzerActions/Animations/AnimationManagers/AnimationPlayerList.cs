@@ -6,5 +6,7 @@ using UnityEngine;
 [Serializable]
 public class AnimationPlayerList
 {
-    public AnimationPlayer[] animationSequences;
+    public AnimationPlayer[] animationPlayers;
 }
+
+ 
