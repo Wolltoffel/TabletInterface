@@ -11,17 +11,17 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 {
     [HideInInspector] public int index;
     static int activeIndex;
-    AnimationSequenceList animationSequenceList;
+    AnimationPlayerList animationSequenceList;
     BackButton backButton;
-    AnimationSequenceList exitZoomAnimations;
+    AnimationPlayerList exitZoomAnimations;
 
-   IEnumerator Start()
+    public IEnumerator startAnimations()
     {
-        yield return null;
         yield return null;
         for (int i = 0; i < animationSequenceList.animationSequences.Length; i++)
         {
-            if (animationSequenceList.animationSequences[i] is ButtonAnimations) {
+            if (animationSequenceList.animationSequences[i] is ButtonAnimations)
+            {
                 animationSequenceList.animationSequences[i].PlayAnimation(index);
             }
         }
@@ -35,14 +35,9 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
 
     IEnumerator HandleAction()
     {
+ 
+        UpdateBackButton();
 
-        //Build Animation list for Backbutton
-        List<AnimationSequence> backButtonList = new List<AnimationSequence>();
-
-        backButtonList.AddRange(ReverseAnimationOrder());
-        backButtonList.AddRange(exitZoomAnimations.animationSequences);
-        backButton.updateData(backButtonList.ToArray());
-        //HoverManager.instance.deactivateAllColliders();
 
         for (int i = 0; i < exitZoomAnimations.animationSequences.Length; i++)
         {
@@ -54,12 +49,9 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
             yield return animationSequenceList.animationSequences[i].startAnimationSequence(index);
         }
 
-
-        HoverManager.instance.activateAllColliders();
-
     }
 
-    public void InsertSetUpData(int index, AnimationSequenceList animationSequenceList, BackButton backButton, AnimationSequenceList exitZoomAnimations)
+    public void InsertSetUpData(int index, AnimationPlayerList animationSequenceList, BackButton backButton, AnimationPlayerList exitZoomAnimations)
     {
         this.index = index;
         this.animationSequenceList = animationSequenceList;
@@ -67,10 +59,10 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         this.exitZoomAnimations = exitZoomAnimations;
     }
 
-    AnimationSequence[] ReverseAnimationOrder()
+    AnimationPlayer[] ReverseAnimationOrder()
     {
-        AnimationSequence[] forward = animationSequenceList.animationSequences;
-        AnimationSequence[] reversed = new AnimationSequence[forward.Length];
+        AnimationPlayer[] forward = animationSequenceList.animationSequences;
+        AnimationPlayer[] reversed = new AnimationPlayer[forward.Length];
         Array.Copy(forward,reversed,forward.Length);
 
         Array.Reverse(reversed);
@@ -88,6 +80,37 @@ public class ClickToInteractWithGameObject : MonoBehaviour, IPointerDownHandler
         return activeIndex;
     }
 
+    void UpdateBackButton()
+    {
+        List<AnimationPlayer> backButtonList = new List<AnimationPlayer>();
+
+        //Get excluded types
+        List<Type> excludedTypes = new List<Type>();
+
+        for (int i = 0; i < exitZoomAnimations.animationSequences.Length; i++)
+        {
+            excludedTypes.Add(exitZoomAnimations.animationSequences.GetType());
+        }
+
+        //Sort out excluded types
+        List<AnimationPlayer> reversedSequences = new List<AnimationPlayer>();
+        reversedSequences.AddRange(ReverseAnimationOrder());
+
+        for (int i = 0; i < reversedSequences.Count; i++)
+        {
+            for (int j = 0; j < excludedTypes.Count; j++)
+            {
+                if (excludedTypes[j].GetType() == reversedSequences[i].GetType())
+                {
+                    reversedSequences.Remove(reversedSequences[i]);
+                }
+            }
+        }
+
+        backButtonList.AddRange(reversedSequences);
+        backButtonList.AddRange(exitZoomAnimations.animationSequences);
+        backButton.updateData(backButtonList.ToArray());
+    }
     
  }
 

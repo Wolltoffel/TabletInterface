@@ -23,7 +23,7 @@ public class ProgressBar : MonoBehaviour
         while (true)
         {
             //Save Progress Value
-            float progressValue = AndroidSelector.instance.GiveInteractionNumber()/3.0f;
+            float progressValue = InteractionCounter.instance.GiveInteractionNumber()/3.0f;
             float sliderValue = progressSlider.value;
             float current = sliderValue;
             if(progressValue > sliderValue)

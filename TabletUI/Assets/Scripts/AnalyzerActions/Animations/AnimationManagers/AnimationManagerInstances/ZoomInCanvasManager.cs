@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
 
-public class ZoomInCanvasManager: AnimationSequence
+public class ZoomInCanvasManager: AnimationPlayer
 {
     ClickToInteractWithGameObject clickToInteract;
     [TextArea]

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraManager : AnimationSequence
+public class CameraManager : AnimationPlayer
 {
     [SerializeField]string paramterName;
     bool zoomedIn;
@@ -14,7 +14,7 @@ public class CameraManager : AnimationSequence
 
     public override float PlayAnimation(int index)
     {
-        index = HoverManager.instance.GetActiveAndroidIndex() * 3 + index;
+        index = PresetSelector.instance.GetActiveAndroidIndex() * 3 + index;
 
         if (!zoomedIn)
         {

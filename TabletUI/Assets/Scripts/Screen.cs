@@ -10,11 +10,13 @@ public class Screen:MonoBehaviour
     public void activateScreen()
     {
         activeEvent?.Invoke();
-        gameObject.SetActive(true);
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
     }
     public void deactivateScreen()
     {
         deactiveEvent?.Invoke();
-        gameObject.SetActive(false);
+        if (gameObject.activeSelf)
+            gameObject.SetActive(false);
     }
 }

@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class BackButton : MonoBehaviour
 {
-    AnimationSequence[] animationSequenceList;
-    public void updateData(AnimationSequence[] animationSequenceList)
+    AnimationPlayer[] animationSequenceList;
+    public void updateData(AnimationPlayer[] animationSequenceList)
     {
         this.animationSequenceList = animationSequenceList;
     }
     public void goBack()
     {
         int index =  ClickToInteractWithGameObject.getActiveIndex();
-        AndroidSelector.instance.NoteDownInteraction(index);
+        InteractionCounter.instance.NoteDownInteraction(index);
         ClickToInteractWithGameObject.setActiveIndex(index);
 
         for (int i = 0; i < animationSequenceList.Length; i++)

@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public abstract class AnimationSequence : MonoBehaviour
+public abstract class AnimationPlayer : MonoBehaviour
 {
     [HideInInspector]public Animator animator;
     public abstract float PlayAnimation(int index);

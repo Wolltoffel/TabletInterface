@@ -9,24 +9,24 @@ public class GameManager : MonoBehaviour
 {
     CheckForCable checkForCable = new CheckForCable();
     [SerializeField] ScreenManager screenManager;
-    HoverManager hoverManager;
-    AndroidSelector androidSelector;
+    PresetSelector presetSelector;
+    InteractionCounter androidSelector;
     bool cablePluggedIn;
 
     int cablePollingRate = 1;
 
     private IEnumerator Start()
     {
-        androidSelector = AndroidSelector.instance;
-        hoverManager = HoverManager.instance;
+        androidSelector = InteractionCounter.instance;
+        presetSelector = PresetSelector.instance;
 
         StartCoroutine (checkForCablePlug());
-        
         yield return null;
+
 
         if (androidSelector.CheckScreenSwitchDue())
         {
-            SwitchToSecondAndroid();
+            presetSelector.nextPreset();
             yield break;
         }
 
@@ -54,11 +54,6 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(cablePollingRate);
         }
-    }
-
-    void SwitchToSecondAndroid()
-    {
-        hoverManager.nextHoverSessionData();
     }
   
 }

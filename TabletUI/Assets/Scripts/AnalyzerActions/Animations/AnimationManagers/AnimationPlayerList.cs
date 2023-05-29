@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 [Serializable]
-public class AnimationSequenceList
+public class AnimationPlayerList
 {
-    public AnimationSequence[] animationSequences;
+    public AnimationPlayer[] animationSequences;
 }

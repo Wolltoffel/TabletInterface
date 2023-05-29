@@ -14,7 +14,8 @@ public class ScreenManager: MonoBehaviour
     {
         for (int i = 0; i < screens.Length; i++)
         {
-            screens[i].deactivateScreen();
+            if (i!=0)
+                screens[i].deactivateScreen();
         }
 
         //LoadFirstScene

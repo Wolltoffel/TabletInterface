@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AndroidSelector : MonoBehaviour
+public class InteractionCounter : MonoBehaviour
 {
     List<GameObject> clickables;
     static List<GameObject> visitedClickables;
-    public static AndroidSelector instance;
-    HoverManager hoverManager;
+    public static InteractionCounter instance;
+    PresetSelector presetSelector;
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class AndroidSelector : MonoBehaviour
         visitedClickables = new List<GameObject>();
     }
 
-    public void AddActiveHoverSessionData(GameObject[] clickables)
+    public void InsertClickables(GameObject[] clickables)
     {
         this.clickables.AddRange (clickables);
     }
@@ -47,15 +47,13 @@ public class AndroidSelector : MonoBehaviour
 
     public bool CheckScreenSwitchDue()
     {
-        if (visitedClickables.Count >= clickables.Count)
-            return true; 
-        return false;
-    }
 
-    public void resetValues()
-    {
-        clickables.Clear();
-        visitedClickables.Clear();
+        if (visitedClickables.Count >= clickables.Count)
+        {
+            return true;
+        }
+            
+        return false;
     }
 
 
