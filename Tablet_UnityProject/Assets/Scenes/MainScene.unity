@@ -2245,12 +2245,12 @@ MonoBehaviour:
     - {fileID: 389258764}
   - animationPlayers:
     - {fileID: 1459039261}
-    - {fileID: 2133500142}
+    - {fileID: 1605752185}
     - {fileID: 2133500142}
     - {fileID: 389258764}
   - animationPlayers:
     - {fileID: 1459039261}
-    - {fileID: 389258764}
+    - {fileID: 1605752185}
     - {fileID: 2133500142}
     - {fileID: 389258764}
   backAnimationPlayers:
@@ -3066,19 +3066,25 @@ MonoBehaviour:
   - {fileID: 925651040}
   clickAnimationPlayers:
   - animationPlayers:
+    - {fileID: 1459039261}
     - {fileID: 1471122117}
-    - {fileID: 1459039261}
-  - animationPlayers:
     - {fileID: 824053175}
-    - {fileID: 1459039261}
-  - animationPlayers:
     - {fileID: 925651040}
+  - animationPlayers:
     - {fileID: 1459039261}
+    - {fileID: 1471122117}
+    - {fileID: 824053175}
+    - {fileID: 925651040}
+  - animationPlayers:
+    - {fileID: 1459039261}
+    - {fileID: 1471122117}
+    - {fileID: 824053175}
+    - {fileID: 925651040}
   backAnimationPlayers:
+  - {fileID: 1459039261}
   - {fileID: 1471122117}
   - {fileID: 824053175}
   - {fileID: 925651040}
-  - {fileID: 1459039261}
   exitAnimationPlayers:
   - {fileID: 1471122117}
   - {fileID: 824053175}
