@@ -16,8 +16,13 @@ public class ErrorPreset : MonoBehaviour
     [SerializeField] AnimationPlayer[] backAnimationPlayers;
     [SerializeField] AnimationPlayer[] exitAnimationPlayers;
 
+    [Header("Android")]
+    [SerializeField]MeshRenderer androidModelRenderer;
+    [SerializeField]Texture2D damageTexture;
+
     [Header ("Other")]
     [SerializeField]ProgressBar progressBar;
+    
 
 
 
@@ -142,6 +147,19 @@ public class ErrorPreset : MonoBehaviour
         for (int i = 0; i < exitAnimationPlayers.Length; i++)
         {
             yield return exitAnimationPlayers[i].startAnimationSequence(activeIndex);
+        }
+    }
+
+    public void SetDamageTexture()
+    {
+        Material[] material = androidModelRenderer.sharedMaterials;
+        for (int i=0;i<material.Length;i++)
+        {
+            Debug.Log(material[i].name);
+            if (material[i].name == "Damage")
+            {
+                material[i].SetTexture("_DamageTexture", damageTexture);
+            }
         }
     }
 

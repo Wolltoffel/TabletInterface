@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
 
         activePreset.AssignScriptsToErrorButtons();
         activePreset.AssignScriptToBackButton();
+        activePreset.SetDamageTexture();
   
         for (int i = 0; i < errorPresets.Length; i++)
         {
