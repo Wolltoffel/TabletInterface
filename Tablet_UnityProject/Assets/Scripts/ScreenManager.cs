@@ -32,8 +32,7 @@ public class ScreenManager: MonoBehaviour
                 activeScreen.deactivateScreen();
                 screens[i].activateScreen();
                 activeScreen = screens[i];
-            }
-                  
+            }       
         }
     }
 }

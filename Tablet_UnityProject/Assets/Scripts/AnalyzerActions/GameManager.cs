@@ -6,14 +6,31 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] ErrorPreset[] errorPresets;
+    [SerializeField] ScreenManager screenManager;
+
+    [Header("Cable Unplug")]
+    [SerializeField]bool plugInCable;
+    
     ErrorPreset activePreset;
     static int activePresetIndex=0;
-    
+    IEnumerator gameloop;
 
-    IEnumerator Start()
+    private IEnumerator Start()
+    {
+        while (!CheckForCable.checkForChargingCable() || !plugInCable)
+        {
+            Debug.Log("Checking for cable..,");
+            yield return null;
+        }
+        screenManager.switchScreen("MainScreen");
+        gameloop = RunGameLoop();
+        StartCoroutine(gameloop);
+        StartCoroutine (checkCablePlug());
+    }
+
+    IEnumerator RunGameLoop()
     {
         activePreset = errorPresets[activePresetIndex];
-
 
         activePreset.AssignScriptsToErrorButtons();
         yield return activePreset.LoadAnimations();
@@ -31,7 +48,7 @@ public class GameManager : MonoBehaviour
         ErrorPreset.SetActiveIndex(0);
         yield return null;
 
-        yield return Start();
+        yield return RunGameLoop();
 
     }
 
@@ -39,4 +56,22 @@ public class GameManager : MonoBehaviour
     {
         return activePresetIndex;
     }
+
+    IEnumerator checkCablePlug()
+    {
+        while (CheckForCable.checkForChargingCable() || !plugInCable)
+        {
+            yield return null;
+        }
+        StopCoroutine(gameloop);
+        screenManager.switchScreen("DisconnectScreen");
+       
+        while (!CheckForCable.checkForChargingCable() || !plugInCable)
+        {
+            yield return null;
+        }
+        screenManager.switchScreen("MainScreen");
+        StartCoroutine(gameloop);
+    }
+
 }

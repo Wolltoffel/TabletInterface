@@ -6,11 +6,15 @@ using UnityEngine.Events;
 
 public class CheckForCable
 {
-    public bool checkForChargingCable() {
-        if (SystemInfo.batteryStatus == BatteryStatus.Charging || SystemInfo.batteryStatus == BatteryStatus.NotCharging || SystemInfo.batteryStatus == BatteryStatus.Full)
+    public static  bool checkForChargingCable() {
+        if (SystemInfo.batteryStatus == BatteryStatus.Charging 
+            || SystemInfo.batteryStatus == BatteryStatus.NotCharging 
+            || SystemInfo.batteryStatus == BatteryStatus.Full)
         {
             return true;
         }
         return false;
     }
+
+
 }

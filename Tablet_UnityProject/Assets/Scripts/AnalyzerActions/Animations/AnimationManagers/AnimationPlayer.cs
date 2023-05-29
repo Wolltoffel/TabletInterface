@@ -12,7 +12,7 @@ public abstract class AnimationPlayer : MonoBehaviour
 
     private void Awake()
     {
-       animator =  GetComponent<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     public abstract void PlayAnimation(int index);
