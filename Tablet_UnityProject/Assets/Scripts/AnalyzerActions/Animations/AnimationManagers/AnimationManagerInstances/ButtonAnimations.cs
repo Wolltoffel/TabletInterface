@@ -16,7 +16,6 @@ public class ButtonAnimations : AnimationPlayer
 
     public override void PlayAnimation(int index)
     {
-        Debug.Log ("Playing on "+ gameObject.name);
 
         if (visible)
         {

@@ -17,11 +17,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        while (!CheckForCable.checkForChargingCable() || !plugInCable)
-        {
-            Debug.Log("Checking for cable..,");
-            yield return null;
-        }
+        yield return WaitForScreenToPlugIn();
         screenManager.switchScreen("MainScreen");
         gameloop = RunGameLoop();
         StartCoroutine(gameloop);
@@ -33,19 +29,37 @@ public class GameManager : MonoBehaviour
         activePreset = errorPresets[activePresetIndex];
 
         activePreset.AssignScriptsToErrorButtons();
-        yield return activePreset.LoadAnimations();
         activePreset.AssignScriptToBackButton();
+  
+        for (int i = 0; i < errorPresets.Length; i++)
+        {
+            if (i != activePresetIndex)
+            {
+                errorPresets[i].hideButtons();
+            }
+        }
+       activePreset.showButtons();
+
+       yield return activePreset.LoadAnimations();
+
+
 
         while (!activePreset.GetNextPresetDue())
         {
             yield return null;
         }
 
-        activePreset.ResetProgressBar();
         yield return activePreset.ExitAnimation();
 
         activePresetIndex++;
         ErrorPreset.SetActiveIndex(0);
+        activePreset.ResetProgressBar();
+
+        screenManager.switchScreen("UnplugScreen");
+        yield return WaitForScreenToPlugOut();
+        screenManager.switchScreen("DisconnectScreen");
+        yield return WaitForScreenToPlugIn();
+
         yield return null;
 
         yield return RunGameLoop();
@@ -59,23 +73,32 @@ public class GameManager : MonoBehaviour
 
     IEnumerator checkCablePlug()
     {
-        while (CheckForCable.checkForChargingCable() && plugInCable)
-        {
-            Debug.Log("CablePluggedIn");
-            yield return null;
-        }
+        yield return WaitForScreenToPlugOut(); 
         StopCoroutine(gameloop);
         screenManager.switchScreen("DisconnectScreen");
-       
+
+        yield return WaitForScreenToPlugIn();
+        
+        screenManager.switchScreen("MainScreen");
+        StartCoroutine(gameloop);
+        yield return null;
+        yield return checkCablePlug();
+    }
+
+    IEnumerator WaitForScreenToPlugIn() {
         while (!CheckForCable.checkForChargingCable() || !plugInCable)
         {
             Debug.Log("CablePluggedOut");
             yield return null;
         }
-        screenManager.switchScreen("MainScreen");
-        StartCoroutine(gameloop);
-        yield return null;
-        yield return checkCablePlug();
+    }
+
+    IEnumerator WaitForScreenToPlugOut()
+    {
+        while (CheckForCable.checkForChargingCable() && plugInCable)
+        {
+            yield return null;
+        }
     }
 
 }

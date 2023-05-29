@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class ErrorPreset : MonoBehaviour
 {
-
-
     [Header("Buttons")]
     [SerializeField] GameObject[] errorButtons;
     [SerializeField] GameObject backButton;
@@ -58,8 +56,35 @@ public class ErrorPreset : MonoBehaviour
 
     public void AssignScriptToBackButton()
     {
-        var backButtonScript = backButton.AddComponent<BackButton>();
+        BackButton backButtonScript;
+
+        if (backButton.GetComponent<BackButton>() == null)
+        {
+            backButtonScript = backButton.AddComponent<BackButton>();
+        }
+        else
+        {
+            backButtonScript = backButton.GetComponent<BackButton>();
+        }
+
         backButtonScript.AssignPreset(this);
+    }
+
+    public void hideButtons()
+    {
+        for (int i = 0; i < errorButtons.Length; i++)
+        {
+            errorButtons[i].SetActive(false);
+        }
+            
+    }
+
+    public void showButtons()
+    {
+        for (int i = 0; i < errorButtons.Length; i++)
+        {
+            errorButtons[i].SetActive(true);
+        }
     }
 
     public IEnumerator LoadAnimations()
@@ -87,6 +112,7 @@ public class ErrorPreset : MonoBehaviour
 
     public void GoBack()
     {
+       Debug.Log("Went back from " + activeIndex);
        StartCoroutine(BackAnimation());
        LogButtonVisit(activeIndex);
        UpdateProgressbar();
@@ -103,7 +129,9 @@ public class ErrorPreset : MonoBehaviour
 
     void LogButtonVisit(int index)
     {
-        GameObject lastVisit = errorButtons[index-1];
+
+        GameObject lastVisit = errorButtons[index - 1];
+
 
         if (!visitedErrorButtons.Contains(lastVisit))
             visitedErrorButtons.Add(lastVisit);
@@ -125,7 +153,7 @@ public class ErrorPreset : MonoBehaviour
 
     public void ResetProgressBar()
     {
-        progressBar.SetProgressValue(0);
+        progressBar.ResetValues();
     }
 
 

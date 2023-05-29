@@ -16,6 +16,12 @@ public class ProgressBar : MonoBehaviour
     {
         progressSlider = GetComponent<Slider>();
     }
+
+    public void ResetValues()
+    {
+        progressValue = 0;
+        progressSlider.value = 0;
+    }
     public void SetProgressValue(int progressValueRaw)
     {
         progressValue = progressValueRaw / 3.0f;
