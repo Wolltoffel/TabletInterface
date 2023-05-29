@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56.1, y: 0}
-  m_SizeDelta: {x: 331.6833, y: 400}
+  m_AnchoredPosition: {x: -29, y: 102}
+  m_SizeDelta: {x: 266.3347, y: 401.9049}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &17258804
 MonoBehaviour:
@@ -2262,6 +2262,8 @@ MonoBehaviour:
   - {fileID: 1605752185}
   - {fileID: 2133500142}
   - {fileID: 389258764}
+  androidModel: {fileID: 1878368681}
+  damageTexture: {fileID: 2800000, guid: 79055fb1e0a677f4fb5c3864cb724e5e, type: 3}
   progressBar: {fileID: 805969162}
 --- !u!1 &963194225
 GameObject:
@@ -3042,6 +3044,8 @@ MonoBehaviour:
   - {fileID: 1471122117}
   - {fileID: 824053175}
   - {fileID: 925651040}
+  androidModel: {fileID: 1878368681}
+  damageTexture: {fileID: 2800000, guid: 7af79f6d63e78eb41aad4b43ddf28685, type: 3}
   progressBar: {fileID: 805969162}
 --- !u!1 &1150449482
 GameObject:
@@ -4214,8 +4218,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 45.595703, y: -52.700035}
-  m_SizeDelta: {x: 877.9476, y: 1049.6842}
+  m_AnchoredPosition: {x: 32, y: -22.1086}
+  m_SizeDelta: {x: 642.004, y: 976.4291}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &1550933169
 CanvasRenderer:
@@ -4245,7 +4249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a315b5c1e7d1ae947b6cd5105c089ac0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 09e344fd8a96c404485f146aa4fff80c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5297,6 +5301,11 @@ PrefabInstance:
 --- !u!4 &1878368680 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
+  m_PrefabInstance: {fileID: 1878368679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1878368681 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
   m_PrefabInstance: {fileID: 1878368679}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1904212548

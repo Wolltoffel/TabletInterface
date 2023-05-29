@@ -563,10 +563,10 @@
     "m_Guid": {
         "m_GuidSerialized": "c49a4fbc-eb93-4b54-8a73-f96bea9b841c"
     },
-    "m_Name": "Texture2D",
+    "m_Name": "DamageTexture",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Texture2D",
-    "m_DefaultReferenceName": "_Texture2D",
+    "m_RefNameGeneratedByDisplayName": "DamageTexture",
+    "m_DefaultReferenceName": "_DamageTexture",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -1126,7 +1126,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
     "m_ObjectId": "fea301294f774620b389ce82191730a2",
     "m_Id": 0,
-    "m_DisplayName": "Texture2D",
+    "m_DisplayName": "DamageTexture",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
