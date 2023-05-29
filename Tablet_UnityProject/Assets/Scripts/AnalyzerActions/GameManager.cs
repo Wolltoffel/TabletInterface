@@ -59,8 +59,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator checkCablePlug()
     {
-        while (CheckForCable.checkForChargingCable() || !plugInCable)
+        while (CheckForCable.checkForChargingCable() && plugInCable)
         {
+            Debug.Log("CablePluggedIn");
             yield return null;
         }
         StopCoroutine(gameloop);
@@ -68,10 +69,13 @@ public class GameManager : MonoBehaviour
        
         while (!CheckForCable.checkForChargingCable() || !plugInCable)
         {
+            Debug.Log("CablePluggedOut");
             yield return null;
         }
         screenManager.switchScreen("MainScreen");
         StartCoroutine(gameloop);
+        yield return null;
+        yield return checkCablePlug();
     }
 
 }

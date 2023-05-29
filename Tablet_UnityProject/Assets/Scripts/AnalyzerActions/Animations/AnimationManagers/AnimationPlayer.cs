@@ -20,7 +20,9 @@ public abstract class AnimationPlayer : MonoBehaviour
     public IEnumerator startAnimationSequence(int index)
     {
         PlayAnimation(index);
+        if (!(this.GetType() == typeof(ButtonAnimations))) { 
         float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animationDuration);
+        }
     }
 }
