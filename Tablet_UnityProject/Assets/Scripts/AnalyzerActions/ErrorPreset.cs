@@ -7,9 +7,13 @@ public class ErrorPreset : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] GameObject[] errorButtons;
+    List<GameObject> visitedErrorButtons = new List<GameObject>();
     [SerializeField] GameObject backButton;
+    [Space(10)]
+    [SerializeField] GameObject analyzeButton;
+    [SerializeField] Sprite activeSprite,passiveSprite;
+    AnalyzeButton analyzeButtonScript;
 
-    //ExposedValues
     [Header ("Animations")]
     [SerializeField] AnimationPlayer[] loadanimationPlayers;
     [SerializeField] AnimationPlayerList[] clickAnimationPlayers;
@@ -22,12 +26,6 @@ public class ErrorPreset : MonoBehaviour
 
     [Header ("Other")]
     [SerializeField]ProgressBar progressBar;
-    
-
-
-
-    List <GameObject> visitedErrorButtons = new List<GameObject>();
-
     static int activeIndex;
 
 
@@ -42,7 +40,12 @@ public class ErrorPreset : MonoBehaviour
         activeIndex = newIndex;
     }
 
-    public bool GetNextPresetDue()
+    public bool AnalyzeButtonPressed()
+    {
+        return analyzeButtonScript.GiveButtonState();
+    }
+
+    public bool GetAllErrorsVisited() 
     {
         if (visitedErrorButtons.Count >= errorButtons.Length)
             return true;
@@ -75,7 +78,34 @@ public class ErrorPreset : MonoBehaviour
         backButtonScript.AssignPreset(this);
     }
 
-    public void hideButtons()
+    public void AssignScriptToAnalyzeButton()
+    {
+
+        if (backButton.GetComponent<AnalyzeButton>() == null)
+        {
+            analyzeButtonScript = analyzeButton.AddComponent<AnalyzeButton>();
+        }
+        else
+        {
+            analyzeButtonScript = analyzeButton.GetComponent<AnalyzeButton>();
+        }
+
+        analyzeButtonScript.AssignPreset(this);
+        analyzeButtonScript.AssignSprites(activeSprite, passiveSprite);
+        analyzeButtonScript.SetActive(false);
+    }
+
+    public void ResetAnalyzeButton()
+    {
+        analyzeButtonScript.ResetButton();
+    }
+
+    public void ActivateAnalyzeButton()
+    {
+        analyzeButtonScript.SetActive(true);
+    }
+
+    public void HideErrorButtons()
     {
         for (int i = 0; i < errorButtons.Length; i++)
         {
@@ -84,7 +114,7 @@ public class ErrorPreset : MonoBehaviour
             
     }
 
-    public void showButtons()
+    public void ShowButtons()
     {
         for (int i = 0; i < errorButtons.Length; i++)
         {
@@ -117,7 +147,6 @@ public class ErrorPreset : MonoBehaviour
 
     public void GoBack()
     {
-       Debug.Log("Went back from " + activeIndex);
        StartCoroutine(BackAnimation());
        LogButtonVisit(activeIndex);
        UpdateProgressbar();
@@ -134,9 +163,7 @@ public class ErrorPreset : MonoBehaviour
 
     void LogButtonVisit(int index)
     {
-
         GameObject lastVisit = errorButtons[index - 1];
-
 
         if (!visitedErrorButtons.Contains(lastVisit))
             visitedErrorButtons.Add(lastVisit);
@@ -155,7 +182,6 @@ public class ErrorPreset : MonoBehaviour
         Material[] material = androidModelRenderer.sharedMaterials;
         for (int i=0;i<material.Length;i++)
         {
-            Debug.Log(material[i].name);
             if (material[i].name == "Damage")
             {
                 material[i].SetTexture("_DamageTexture", damageTexture);
@@ -173,6 +199,7 @@ public class ErrorPreset : MonoBehaviour
     {
         progressBar.ResetValues();
     }
+
 
 
 

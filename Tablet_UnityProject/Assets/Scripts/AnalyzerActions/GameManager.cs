@@ -30,22 +30,29 @@ public class GameManager : MonoBehaviour
 
         activePreset.AssignScriptsToErrorButtons();
         activePreset.AssignScriptToBackButton();
+        activePreset.AssignScriptToAnalyzeButton();
         activePreset.SetDamageTexture();
   
         for (int i = 0; i < errorPresets.Length; i++)
         {
             if (i != activePresetIndex)
             {
-                errorPresets[i].hideButtons();
+                errorPresets[i].HideErrorButtons();
             }
         }
-       activePreset.showButtons();
+       activePreset.ShowButtons();
 
-       yield return activePreset.LoadAnimations();
+       yield return activePreset.LoadAnimations();   
 
 
+        while (!activePreset.GetAllErrorsVisited())
+        {
+            yield return null;
+        }
 
-        while (!activePreset.GetNextPresetDue())
+        activePreset.ActivateAnalyzeButton();
+
+        while (!activePreset.AnalyzeButtonPressed())
         {
             yield return null;
         }
@@ -55,6 +62,7 @@ public class GameManager : MonoBehaviour
         activePresetIndex++;
         ErrorPreset.SetActiveIndex(0);
         activePreset.ResetProgressBar();
+        activePreset.ResetAnalyzeButton();
 
         screenManager.switchScreen("UnplugScreen");
         yield return WaitForScreenToPlugOut();
