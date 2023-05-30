@@ -2975,9 +2975,9 @@ MonoBehaviour:
   - {fileID: 824053173}
   - {fileID: 925651034}
   backButton: {fileID: 979257524}
-  analyzeButton: {fileID: 0}
-  activeSprite: {fileID: 0}
-  passiveSprite: {fileID: 0}
+  analyzeButton: {fileID: 761825634}
+  activeSprite: {fileID: 21300000, guid: 5b5b6a92af5980c47842e91308945cb1, type: 3}
+  passiveSprite: {fileID: 21300000, guid: 9b32ed50a37e5d44daa445ffcb4590fb, type: 3}
   loadanimationPlayers:
   - {fileID: 1471122117}
   - {fileID: 824053175}
