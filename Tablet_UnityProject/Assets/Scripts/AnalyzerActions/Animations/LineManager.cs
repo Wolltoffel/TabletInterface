@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -64,7 +65,7 @@ public class LineManager : MonoBehaviour
         for (int i = 0; i < vertex.Length; i++)
         {
             vertexPositions[i] = vertex[i].position;
-            updateVertexPositions(i);
+            vertexPositions[i] = convertRelativeToMainCamera(vertexPositions[i]);
             
             if (i== vertex.Length - 1)
             {
@@ -73,24 +74,25 @@ public class LineManager : MonoBehaviour
         }
     }
 
-    void updateVertexPositions(int index)
+    Vector3 convertRelativeToMainCamera(Vector3 initialPosition)
     {
-        //Put all vertex on a plane and always face the camera
-        vertexPositions[index] = Vector3.ProjectOnPlane(vertexPositions[index], Camera.main.transform.forward);
-        Vector3 vertexToCamera = Camera.main.transform.position - vertexPositions[index];
-        vertexPositions[index] = vertexPositions[index] + vertexToCamera.normalized / distanceToCamera;
+        //Put all vertex on a plane that always faces the camera
+        Plane plane = new Plane(Camera.main.transform.forward, Camera.main.transform.position+distanceToCamera * Camera.main.transform.forward);
+        return plane.ClosestPointOnPlane(initialPosition);
     }
 
     void addLedge()
     {
         Vector3 target = vertexPositions[vertex.Length - 1];
         Vector3 ledge = target+ new Vector3 (-ledgeOffset,0,0);
+        ledge = convertRelativeToMainCamera(ledge);
         Vector3[] newVertexPositions = new Vector3[vertexPositions.Length+1];
         
         for (int i= 0; i<vertexPositions.Length;i++)
         {
             newVertexPositions[i] = vertexPositions[i];
         }
+
 
         newVertexPositions[vertexPositions.Length-1] = ledge;
         newVertexPositions[vertexPositions.Length] = target;
