@@ -138,11 +138,11 @@ public class ErrorPreset : MonoBehaviour
     {
         AnimationPlayer[] animationPlayers = clickAnimationPlayers[buttonIndex-1].animationPlayers;
 
+        activeIndex = buttonIndex;
+
         for (int i = 0;i < animationPlayers.Length;i++) {
             yield return animationPlayers[i].startAnimationSequence(buttonIndex);
         }
-        
-        activeIndex = buttonIndex;
     }
 
     public void GoBack()
@@ -163,6 +163,7 @@ public class ErrorPreset : MonoBehaviour
 
     void LogButtonVisit(int index)
     {
+        Debug.Log(index);
         GameObject lastVisit = errorButtons[index - 1];
 
         if (!visitedErrorButtons.Contains(lastVisit))
