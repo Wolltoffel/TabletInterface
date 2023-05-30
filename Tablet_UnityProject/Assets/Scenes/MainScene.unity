@@ -4864,7 +4864,6 @@ MonoBehaviour:
   - {fileID: 1500136356}
   - {fileID: 1325224515}
   - {fileID: 2135937694}
-  - {fileID: 0}
 --- !u!1 &1707132912
 GameObject:
   m_ObjectHideFlags: 0
@@ -5530,6 +5529,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6396f95dd901f4f8af4515e5b7155d, type: 3}
@@ -6315,7 +6318,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135937693
 RectTransform:
   m_ObjectHideFlags: 0
