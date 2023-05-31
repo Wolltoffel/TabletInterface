@@ -33,6 +33,5 @@ public class InfoTextAnimations: AnimationPlayer
             fadedIn = true;
             animator.Play("FadeIn");
         }
-
     }
 }

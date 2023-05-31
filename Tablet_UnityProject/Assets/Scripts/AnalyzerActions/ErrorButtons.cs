@@ -16,7 +16,6 @@ public class ErrorButtons : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        hasBeenSelectedOnce = true;
         StartCoroutine(preset.ClickAnimation(buttonIndex));
     }
 

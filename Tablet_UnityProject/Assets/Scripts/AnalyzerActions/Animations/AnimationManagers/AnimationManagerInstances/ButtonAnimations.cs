@@ -19,7 +19,7 @@ public class ButtonAnimations : AnimationPlayer
 
         if (visible)
         {
-            if(animationDirection == AnimationDirection.left)
+            if (animationDirection == AnimationDirection.left)
             {
                 animator.Play("1 FadeOut");
             }

@@ -144,15 +144,7 @@ public class ErrorPreset : MonoBehaviour
         activeIndex = buttonIndex;
 
         for (int i = 0;i < animationPlayers.Length;i++) {
-
-            if (errorButtonScripts[buttonIndex-1].GetHasBeenClickedOnce()) {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex,false);
-            }
-            else
-            {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex, true);
-                errorButtonScripts[buttonIndex - 1].SetHasBeenClickedOnce(true);
-            }
+            yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
         }
     }
 
@@ -166,15 +158,22 @@ public class ErrorPreset : MonoBehaviour
 
     IEnumerator BackAnimation()
     {
+
+        bool firstButtonPress = true;
+        
+        if (errorButtonScripts[activeIndex - 1].GetHasBeenClickedOnce())
+            firstButtonPress = false;
+        else
+            errorButtonScripts[activeIndex - 1].SetHasBeenClickedOnce(true);
+
         for (int i = 0; i < backAnimationPlayers.Length; i++)
         {
-            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, false);
+            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, firstButtonPress);
         }
     }
 
     void LogButtonVisit(int index)
     {
-        Debug.Log(index);
         GameObject lastVisit = errorButtons[index - 1];
 
         if (!visitedErrorButtons.Contains(lastVisit))
