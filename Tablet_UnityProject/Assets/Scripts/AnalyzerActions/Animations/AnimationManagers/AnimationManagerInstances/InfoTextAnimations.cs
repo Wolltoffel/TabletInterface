@@ -13,8 +13,8 @@ public class InfoTextAnimations: AnimationPlayer
 
     public override void PlayAnimation(int index)
     { 
-
-        infoTextComponent.text = infoTexts[index+1];
+        
+        infoTextComponent.text = infoTexts[index - 1];
 
         if (fadedIn)
         {
