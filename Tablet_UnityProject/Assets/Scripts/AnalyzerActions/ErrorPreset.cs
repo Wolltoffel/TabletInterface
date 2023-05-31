@@ -165,17 +165,16 @@ public class ErrorPreset : MonoBehaviour
 
     IEnumerator BackAnimation()
     {
-
         //Check if the active button has been pressed for the first time
-        errorButtonScripts[activeIndex - 1].SetHasBeenClicked(true); ;
+        errorButtonScripts[activeIndex - 1].SetHasBeenClicked(true); //Set the newly clicked button animation to true
 
         for (int i = 0; i < backAnimationPlayers.Length; i++)
         {
            bool hasBeenClicked=false;
-           int index =  backAnimationPlayers[i].GetIndex();
-           if (index > 0)//If index is larger than zero it means the component is an error button
-                hasBeenClicked = errorButtonScripts[index - 1].GetHasBeenClicked();
-            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, hasBeenClicked);
+           int index =  backAnimationPlayers[i].GetIndex(); // Get the index of the AnimationPlayer
+           if (index > 0)//If index is larger than zero it means the component has an error button component
+                hasBeenClicked = errorButtonScripts[index - 1].GetHasBeenClicked();//if that's the case it has to be checked whether it was already clicked on
+            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, hasBeenClicked); 
         }
 
         //Reset activeIndex

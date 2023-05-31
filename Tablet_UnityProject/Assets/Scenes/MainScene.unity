@@ -1383,6 +1383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 0}
   animationDirection: 1
 --- !u!95 &389258765
 Animator:
@@ -2754,6 +2755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 0}
   animationDirection: 1
 --- !u!95 &824053176
 Animator:
@@ -3056,6 +3058,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 0}
   animationDirection: 0
 --- !u!1 &934539421
 GameObject:
@@ -5390,6 +5393,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 0}
   animationDirection: 0
 --- !u!95 &1471122118
 Animator:
@@ -6260,6 +6264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 1770753483}
   animationDirection: 0
 --- !u!1 &1687412728
 GameObject:
@@ -8114,6 +8119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  exclamationMark: {fileID: 0}
   animationDirection: 1
 --- !u!95 &2133500143
 Animator:
