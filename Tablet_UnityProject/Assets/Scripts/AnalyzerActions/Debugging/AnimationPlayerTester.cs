@@ -5,7 +5,7 @@ using UnityEngine;
 public class AnimationPlayerTester : AnimationPlayer
 {
 
-    public override void PlayAnimation(int a)
+    public override void PlayAnimation(int a, bool firstButtonPress)
     {
         animator = GetComponent<Animator>();
         animator.Play("1 FadeIn");
@@ -16,11 +16,8 @@ public class AnimationPlayerTester : AnimationPlayer
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            PlayAnimation(0);
+           // PlayAnimation(0);
         }
     }
-
-    public override void PlayLoadInAnimation() { }
-    public override void PlayLoadOutAnimation() { }
 
 }

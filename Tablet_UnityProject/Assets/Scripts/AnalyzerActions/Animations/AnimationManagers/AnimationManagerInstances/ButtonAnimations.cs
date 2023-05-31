@@ -14,7 +14,7 @@ public class ButtonAnimations : AnimationPlayer
 
     [SerializeField]AnimationDirection animationDirection;
 
-    public override void PlayAnimation(int index)
+    public override void PlayAnimation(int index, bool firstButtonPress)
     {
 
         if (visible)
@@ -34,39 +34,33 @@ public class ButtonAnimations : AnimationPlayer
         }
         else
         {
-            if (animationDirection == AnimationDirection.left)
+            if (firstButtonPress)
             {
-                animator.Play("1 FadeIn");
-            }
+                if (animationDirection == AnimationDirection.left)
+                {
+                    animator.Play("1 FadeInFirst");
+                }
 
-            else
-            {
-                animator.Play("2 FadeIn");
-            }
-                  
-            visible = true;
-        }
-    }
-
-    public override void PlayLoadInAnimation()
-    {
-        if (!visible)
-        {
-            if (animationDirection == AnimationDirection.left)
-            {
-                animator.Play("1 LoadFadeIn");
+                else
+                {
+                    animator.Play("2 FadeInFirst");
+                }
             }
             else
             {
-                animator.Play("2 LoadFadeIn");
-            }
+                if (animationDirection == AnimationDirection.left)
+                {
+                    animator.Play("1 FadeIn");
+                }
 
+                else
+                {
+                    animator.Play("2 FadeIn");
+                }
+            }
+    
             visible = true;
         }
-       
     }
-
-    public override void PlayLoadOutAnimation() { }
-
 
 }

@@ -8,6 +8,7 @@ public class ErrorPreset : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] GameObject[] errorButtons;
     List<GameObject> visitedErrorButtons = new List<GameObject>();
+    ErrorButtons[] errorButtonScripts;
     [SerializeField] GameObject backButton;
     [Space(10)]
     [SerializeField] GameObject analyzeButton;
@@ -55,10 +56,12 @@ public class ErrorPreset : MonoBehaviour
 
     public void AssignScriptsToErrorButtons()
     {
+        errorButtonScripts = new ErrorButtons[errorButtons.Length];
+
         for (int i = 0; i < errorButtons.Length; i++)
         {
-            var errorButtonScript = errorButtons[i].AddComponent<ErrorButtons>();
-            errorButtonScript.AssignData(this,i+1);
+            errorButtonScripts[i] = errorButtons[i].AddComponent<ErrorButtons>();
+            errorButtonScripts[i].AssignData(this,i+1);
         }
     }
 
@@ -128,7 +131,7 @@ public class ErrorPreset : MonoBehaviour
         {
             for (int i = 0; i < loadanimationPlayers.Length; i++)
             {
-                loadanimationPlayers[i].PlayLoadInAnimation();
+                loadanimationPlayers[i].PlayAnimation(0,false);
             }
             yield return null;
         }
@@ -141,7 +144,14 @@ public class ErrorPreset : MonoBehaviour
         activeIndex = buttonIndex;
 
         for (int i = 0;i < animationPlayers.Length;i++) {
-            yield return animationPlayers[i].startAnimationSequence(buttonIndex);
+
+            if (errorButtonScripts[buttonIndex-1].hasBeenSelectedOnce()) {
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex,false);
+            }
+            else
+            {
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex, true);
+            }
         }
     }
 
@@ -157,7 +167,7 @@ public class ErrorPreset : MonoBehaviour
     {
         for (int i = 0; i < backAnimationPlayers.Length; i++)
         {
-            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex);
+            yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, false);
         }
     }
 
@@ -174,7 +184,7 @@ public class ErrorPreset : MonoBehaviour
     {
         for (int i = 0; i < exitAnimationPlayers.Length; i++)
         {
-            yield return exitAnimationPlayers[i].startAnimationSequence(activeIndex);
+            yield return exitAnimationPlayers[i].startAnimationSequence(activeIndex,false);
         }
     }
 

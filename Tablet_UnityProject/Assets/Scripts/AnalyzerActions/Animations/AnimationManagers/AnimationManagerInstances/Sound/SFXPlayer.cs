@@ -17,11 +17,8 @@ public class SFXPlayer
         }
     }
 
-    public override void PlayAnimation(int index)
+    public override void PlayAnimation(int index, bool firstButtonPress)
     {
         audioSource.PlayOneShot(clips[index]);
     }
-
-    public override void PlayLoadInAnimation() { }
-    public override void PlayLoadOutAnimation() { }
 }

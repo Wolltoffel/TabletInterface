@@ -15,16 +15,13 @@ public abstract class AnimationPlayer : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    public abstract void PlayAnimation(int index);
+    public abstract void PlayAnimation(int index, bool firstButtonPress);
 
-    public abstract void PlayLoadInAnimation();
-    public abstract void PlayLoadOutAnimation();
-
-    public IEnumerator startAnimationSequence(int index)
+    public IEnumerator startAnimationSequence(int index, bool firstButtonPress)
     {
         if (animator != null)
         {
-            PlayAnimation(index);
+            PlayAnimation(index,firstButtonPress);
             if (!(this.GetType() == typeof(ButtonAnimations)))
             {
                 float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;

@@ -12,7 +12,7 @@ public class CameraAnimations : AnimationPlayer
         animator = GetComponent<Animator>();
     }
 
-    public override void PlayAnimation(int index)
+    public override void PlayAnimation(int index, bool firstButtonPress)
     {
         index = GameManager.GiveActivePresetIndex() * 3 + index;
 
@@ -28,8 +28,5 @@ public class CameraAnimations : AnimationPlayer
             zoomedIn = false;
         }
     }
-
-    public override void PlayLoadInAnimation() { }
-    public override void PlayLoadOutAnimation() { }
 
 }

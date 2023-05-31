@@ -17,7 +17,7 @@ public class InfoTextAnimations: AnimationPlayer
     [SerializeField] TextMeshProUGUI codeTextComponent;
     bool fadedIn;
 
-    public override void PlayAnimation(int index)
+    public override void PlayAnimation(int index, bool firstButtonPress)
     { 
         infoTextComponent.text = infoTexts[index - 1];
         headerTextComponent.text = headerTexts[index - 1];
@@ -35,7 +35,4 @@ public class InfoTextAnimations: AnimationPlayer
         }
 
     }
-
-    public override void PlayLoadInAnimation() { }
-    public override void PlayLoadOutAnimation() { }
 }

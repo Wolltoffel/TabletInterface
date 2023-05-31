@@ -50,18 +50,10 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
         active = false;
     }
 
-    public override void  PlayAnimation (int index)
+    public override void  PlayAnimation (int index, bool firstButtonPress)
     {
         if (!active) {
             animator.Play("ActiveState");
         }
     }
-
-
-    public override void PlayLoadInAnimation() {
-
-    }
-    public override void PlayLoadOutAnimation() { }
-
-
 }
