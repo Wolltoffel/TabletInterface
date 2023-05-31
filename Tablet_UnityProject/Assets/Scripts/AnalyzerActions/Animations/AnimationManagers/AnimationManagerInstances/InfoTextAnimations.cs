@@ -8,13 +8,18 @@ public class InfoTextAnimations: AnimationPlayer
 {
     [TextArea]
     [SerializeField] string[] infoTexts;
-    [SerializeField]TextMeshProUGUI infoTextComponent ;
+    [SerializeField] string[] headerTexts;
+    [SerializeField] string[] codeTexts;
+    [SerializeField] TextMeshProUGUI headerTextComponent;
+    [SerializeField]TextMeshProUGUI infoTextComponent;
+    [SerializeField] TextMeshProUGUI codeTextComponent;
     bool fadedIn;
 
     public override void PlayAnimation(int index)
     { 
-        
         infoTextComponent.text = infoTexts[index - 1];
+        headerTextComponent.text = infoTexts[index - 1];
+        codeTextComponent.text = codeTexts[index - 1];
 
         if (fadedIn)
         {
