@@ -21,8 +21,8 @@ public abstract class AnimationPlayer : MonoBehaviour
     {
         PlayAnimation(index);
         if (!(this.GetType() == typeof(ButtonAnimations))) { 
-        float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(animationDuration);
+            float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+            yield return new WaitForSeconds(animationDuration);
         }
     }
 }
