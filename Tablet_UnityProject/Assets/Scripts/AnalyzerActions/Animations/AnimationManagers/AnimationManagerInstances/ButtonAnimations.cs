@@ -50,13 +50,12 @@ public class ButtonAnimations : AnimationPlayer
 
     public override void PlayLoadInAnimation()
     {
-        if (visible)
+        if (!visible)
         {
             if (animationDirection == AnimationDirection.left)
             {
                 animator.Play("1 LoadFadeIn");
             }
-
             else
             {
                 animator.Play("2 LoadFadeIn");
