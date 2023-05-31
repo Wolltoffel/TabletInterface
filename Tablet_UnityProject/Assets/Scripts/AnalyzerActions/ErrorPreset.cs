@@ -146,11 +146,11 @@ public class ErrorPreset : MonoBehaviour
         for (int i = 0;i < animationPlayers.Length;i++) {
 
             if (errorButtonScripts[buttonIndex-1].hasBeenSelectedOnce()) {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex,false);
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex,true);
             }
             else
             {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex, true);
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
             }
         }
     }
