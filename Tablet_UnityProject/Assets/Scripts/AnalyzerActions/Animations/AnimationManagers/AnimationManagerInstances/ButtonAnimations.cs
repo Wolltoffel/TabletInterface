@@ -23,7 +23,7 @@ public class ButtonAnimations : AnimationPlayer
     public override int GetIndex() {
         return index;
     }
-    public override void PlayAnimation(int index, bool firstButtonPress)
+    public override void PlayAnimation(int index, bool hasBeenClicked)
     {
         if (visible)
         {
@@ -42,9 +42,8 @@ public class ButtonAnimations : AnimationPlayer
         }
         else
         {
-            if (firstButtonPress && this.index==index)
+            if (hasBeenClicked)
             {
-                Debug.Log("First time pressed "+ gameObject.name);
                 if (animationDirection == AnimationDirection.left)
                 {
                     animator.Play("1 FadeInFirst");
