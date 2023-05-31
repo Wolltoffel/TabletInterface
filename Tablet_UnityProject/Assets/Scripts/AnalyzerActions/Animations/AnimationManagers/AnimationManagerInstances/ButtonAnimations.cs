@@ -44,7 +44,7 @@ public class ButtonAnimations : AnimationPlayer
         {
             if (firstButtonPress && this.index==index)
             {
-                Debug.Log("test");
+                Debug.Log("First time pressed "+ gameObject.name);
                 if (animationDirection == AnimationDirection.left)
                 {
                     animator.Play("1 FadeInFirst");
@@ -57,6 +57,7 @@ public class ButtonAnimations : AnimationPlayer
             }
             else
             {
+                Debug.Log("Default Fade In for " + gameObject.name);
                 if (animationDirection == AnimationDirection.left)
                 {
                     animator.Play("1 FadeIn");
