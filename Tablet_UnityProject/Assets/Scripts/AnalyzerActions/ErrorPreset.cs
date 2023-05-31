@@ -145,12 +145,13 @@ public class ErrorPreset : MonoBehaviour
 
         for (int i = 0;i < animationPlayers.Length;i++) {
 
-            if (errorButtonScripts[buttonIndex-1].hasBeenSelectedOnce()) {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex,true);
+            if (errorButtonScripts[buttonIndex-1].GetHasBeenClickedOnce()) {
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex,false);
             }
             else
             {
-                yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
+                yield return animationPlayers[i].startAnimationSequence(buttonIndex, true);
+                errorButtonScripts[buttonIndex - 1].SetHasBeenClickedOnce(true);
             }
         }
     }

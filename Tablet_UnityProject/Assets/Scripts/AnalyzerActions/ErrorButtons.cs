@@ -7,7 +7,7 @@ public class ErrorButtons : MonoBehaviour, IPointerDownHandler
 {
     ErrorPreset preset;
     int buttonIndex;
-    bool hasBeenSelcetedOnce=false;
+    bool hasBeenSelectedOnce=false;
 
     public void AssignData(ErrorPreset preset, int buttonIndex)
     {
@@ -16,13 +16,17 @@ public class ErrorButtons : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        hasBeenSelcetedOnce = true;
+        hasBeenSelectedOnce = true;
         StartCoroutine(preset.ClickAnimation(buttonIndex));
     }
 
-    public bool hasBeenSelectedOnce()
+    public bool GetHasBeenClickedOnce()
     {
-        return hasBeenSelcetedOnce;
+        return hasBeenSelectedOnce;
+    }
+
+    public void SetHasBeenClickedOnce(bool hasBeenSelectedOnce) {
+        this.hasBeenSelectedOnce = hasBeenSelectedOnce;
     }
 
 }
