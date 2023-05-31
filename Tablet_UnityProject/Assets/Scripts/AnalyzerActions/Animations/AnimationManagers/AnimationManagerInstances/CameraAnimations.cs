@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,6 +28,12 @@ public class CameraAnimations : AnimationPlayer
             animator.SetInteger(paramterName, 0);
             zoomedIn = false;
         }
+    }
+
+    public override void SetIndex(int newIndex) { }
+
+    public override int GetIndex() {
+        return 0;
     }
 
 }

@@ -56,4 +56,11 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
             animator.Play("ActiveState");
         }
     }
+
+    public override void SetIndex(int newIndex) { }
+
+    public override int GetIndex()
+    {
+        return 0;
+    }
 }

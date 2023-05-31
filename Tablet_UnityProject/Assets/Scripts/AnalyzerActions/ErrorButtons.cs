@@ -28,4 +28,9 @@ public class ErrorButtons : MonoBehaviour, IPointerDownHandler
         this.hasBeenSelectedOnce = hasBeenSelectedOnce;
     }
 
+    public ButtonAnimations GetButtonAnimationComponent()
+    {
+        return GetComponent<ButtonAnimations>();
+    }
+
 }

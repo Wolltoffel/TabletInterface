@@ -62,6 +62,10 @@ public class ErrorPreset : MonoBehaviour
         {
             errorButtonScripts[i] = errorButtons[i].AddComponent<ErrorButtons>();
             errorButtonScripts[i].AssignData(this,i+1);
+           
+            ButtonAnimations buttonAnimationComponent = errorButtonScripts[i].GetButtonAnimationComponent();
+            if (buttonAnimationComponent!=null)
+                buttonAnimationComponent.SetIndex(i+1);
         }
     }
 
@@ -144,32 +148,39 @@ public class ErrorPreset : MonoBehaviour
         activeIndex = buttonIndex;
 
         for (int i = 0;i < animationPlayers.Length;i++) {
+
+            if (animationPlayers[i] is ButtonAnimations) {
+            }
+
             yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
         }
     }
 
     public void GoBack()
     {
-       StartCoroutine(BackAnimation());
+       BackAnimation();
        LogButtonVisit(activeIndex);
        UpdateProgressbar();
-       activeIndex = 0;
     }
 
     IEnumerator BackAnimation()
     {
 
+        //Check if the active button has been pressed for the first time
         bool firstButtonPress = true;
-        
         if (errorButtonScripts[activeIndex - 1].GetHasBeenClickedOnce())
             firstButtonPress = false;
         else
             errorButtonScripts[activeIndex - 1].SetHasBeenClickedOnce(true);
 
+        //Carry Out Animations
         for (int i = 0; i < backAnimationPlayers.Length; i++)
         {
             yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, firstButtonPress);
         }
+
+        //Reset activeIndex
+        activeIndex = 0;
     }
 
     void LogButtonVisit(int index)

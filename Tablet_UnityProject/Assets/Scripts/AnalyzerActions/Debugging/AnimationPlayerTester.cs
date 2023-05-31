@@ -20,4 +20,11 @@ public class AnimationPlayerTester : AnimationPlayer
         }
     }
 
+    public override void SetIndex(int newIndex) { }
+
+    public override int GetIndex()
+    {
+        return 0;
+    }
+
 }

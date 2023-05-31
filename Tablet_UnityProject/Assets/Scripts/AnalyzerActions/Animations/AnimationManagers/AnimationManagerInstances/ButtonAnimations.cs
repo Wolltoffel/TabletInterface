@@ -8,15 +8,23 @@ using UnityEngine;
 public class ButtonAnimations : AnimationPlayer
 {
     bool visible;
+    int index;
     enum AnimationDirection {
         left,right
     }
 
     [SerializeField]AnimationDirection animationDirection;
 
+    public override void SetIndex(int newIndex)
+    {
+        index = newIndex;
+    }
+
+    public override int GetIndex() {
+        return index;
+    }
     public override void PlayAnimation(int index, bool firstButtonPress)
     {
-
         if (visible)
         {
             if (animationDirection == AnimationDirection.left)
@@ -34,8 +42,9 @@ public class ButtonAnimations : AnimationPlayer
         }
         else
         {
-            if (firstButtonPress)
+            if (firstButtonPress && this.index==index)
             {
+                Debug.Log("test");
                 if (animationDirection == AnimationDirection.left)
                 {
                     animator.Play("1 FadeInFirst");

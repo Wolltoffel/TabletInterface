@@ -21,4 +21,11 @@ public class SFXPlayer
     {
         audioSource.PlayOneShot(clips[index]);
     }
+
+    public override void SetIndex(int newIndex) { }
+
+    public override int GetIndex()
+    {
+        return 0;
+    }
 }
