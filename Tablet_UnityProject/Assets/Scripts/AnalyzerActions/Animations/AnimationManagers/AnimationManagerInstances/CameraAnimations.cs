@@ -29,4 +29,7 @@ public class CameraAnimations : AnimationPlayer
         }
     }
 
+    public override void PlayLoadInAnimation() { }
+    public override void PlayLoadOutAnimation() { }
+
 }

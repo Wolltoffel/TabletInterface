@@ -20,4 +20,7 @@ public class AnimationPlayerTester : AnimationPlayer
         }
     }
 
+    public override void PlayLoadInAnimation() { }
+    public override void PlayLoadOutAnimation() { }
+
 }

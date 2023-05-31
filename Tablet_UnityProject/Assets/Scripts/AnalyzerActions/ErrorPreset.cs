@@ -128,7 +128,7 @@ public class ErrorPreset : MonoBehaviour
         {
             for (int i = 0; i < loadanimationPlayers.Length; i++)
             {
-                loadanimationPlayers[i].PlayAnimation(0);
+                loadanimationPlayers[i].PlayLoadInAnimation();
             }
             yield return null;
         }

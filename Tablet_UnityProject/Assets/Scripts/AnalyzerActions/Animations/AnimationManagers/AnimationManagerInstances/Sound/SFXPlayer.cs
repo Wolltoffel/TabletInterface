@@ -21,4 +21,7 @@ public class SFXPlayer
     {
         audioSource.PlayOneShot(clips[index]);
     }
+
+    public override void PlayLoadInAnimation() { }
+    public override void PlayLoadOutAnimation() { }
 }

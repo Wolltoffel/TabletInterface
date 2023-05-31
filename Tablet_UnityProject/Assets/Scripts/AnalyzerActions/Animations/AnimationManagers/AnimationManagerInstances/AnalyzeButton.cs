@@ -57,5 +57,11 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
         }
     }
 
-  
+
+    public override void PlayLoadInAnimation() {
+
+    }
+    public override void PlayLoadOutAnimation() { }
+
+
 }

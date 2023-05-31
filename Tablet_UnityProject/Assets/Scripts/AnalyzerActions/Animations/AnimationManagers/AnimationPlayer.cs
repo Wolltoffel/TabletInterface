@@ -17,12 +17,20 @@ public abstract class AnimationPlayer : MonoBehaviour
 
     public abstract void PlayAnimation(int index);
 
+    public abstract void PlayLoadInAnimation();
+    public abstract void PlayLoadOutAnimation();
+
     public IEnumerator startAnimationSequence(int index)
     {
-        PlayAnimation(index);
-        if (!(this.GetType() == typeof(ButtonAnimations))) { 
-            float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-            yield return new WaitForSeconds(animationDuration);
+        if (animator != null)
+        {
+            PlayAnimation(index);
+            if (!(this.GetType() == typeof(ButtonAnimations)))
+            {
+                float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+                yield return new WaitForSeconds(animationDuration);
+            }
         }
+        
     }
 }

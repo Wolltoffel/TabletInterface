@@ -22,7 +22,6 @@ public class ButtonAnimations : AnimationPlayer
             if(animationDirection == AnimationDirection.left)
             {
                 animator.Play("1 FadeOut");
-
             }
 
             else
@@ -48,4 +47,27 @@ public class ButtonAnimations : AnimationPlayer
             visible = true;
         }
     }
+
+    public override void PlayLoadInAnimation()
+    {
+        if (visible)
+        {
+            if (animationDirection == AnimationDirection.left)
+            {
+                animator.Play("1 LoadFadeIn");
+            }
+
+            else
+            {
+                animator.Play("2 LoadFadeIn");
+            }
+
+            visible = true;
+        }
+       
+    }
+
+    public override void PlayLoadOutAnimation() { }
+
+
 }
