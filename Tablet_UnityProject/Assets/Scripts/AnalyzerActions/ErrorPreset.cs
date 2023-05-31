@@ -158,7 +158,7 @@ public class ErrorPreset : MonoBehaviour
 
     public void GoBack()
     {
-       BackAnimation();
+       StartCoroutine(BackAnimation());
        LogButtonVisit(activeIndex);
        UpdateProgressbar();
     }
