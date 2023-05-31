@@ -8,7 +8,9 @@ public class InfoTextAnimations: AnimationPlayer
 {
     [TextArea]
     [SerializeField] string[] infoTexts;
+    [TextArea]
     [SerializeField] string[] headerTexts;
+    [TextArea]
     [SerializeField] string[] codeTexts;
     [SerializeField] TextMeshProUGUI headerTextComponent;
     [SerializeField]TextMeshProUGUI infoTextComponent;
