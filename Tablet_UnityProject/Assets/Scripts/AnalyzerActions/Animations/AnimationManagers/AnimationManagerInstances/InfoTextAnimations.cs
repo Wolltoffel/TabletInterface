@@ -20,7 +20,7 @@ public class InfoTextAnimations: AnimationPlayer
     public override void PlayAnimation(int index)
     { 
         infoTextComponent.text = infoTexts[index - 1];
-        headerTextComponent.text = infoTexts[index - 1];
+        headerTextComponent.text = headerTexts[index - 1];
         codeTextComponent.text = codeTexts[index - 1];
 
         if (fadedIn)
