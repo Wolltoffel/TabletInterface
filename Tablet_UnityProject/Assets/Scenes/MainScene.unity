@@ -2703,7 +2703,7 @@ MonoBehaviour:
   - {fileID: 389258762}
   backButton: {fileID: 979257524}
   analyzeButton: {fileID: 231623711}
-  activeSprite: {fileID: 21300000, guid: 8a10b90b75486ed43bf347fae8c3c8a7, type: 3}
+  activeSprite: {fileID: 21300000, guid: 3f70795b57d549b41b6d48c86e95b261, type: 3}
   passiveSprite: {fileID: 21300000, guid: 797571569d75b114a9ea820c2c1f1cc1, type: 3}
   loadanimationPlayers:
   - {fileID: 1605752185}
@@ -3493,7 +3493,7 @@ MonoBehaviour:
   - {fileID: 925651034}
   backButton: {fileID: 979257524}
   analyzeButton: {fileID: 231623711}
-  activeSprite: {fileID: 21300000, guid: 8a10b90b75486ed43bf347fae8c3c8a7, type: 3}
+  activeSprite: {fileID: 21300000, guid: 3f70795b57d549b41b6d48c86e95b261, type: 3}
   passiveSprite: {fileID: 21300000, guid: 797571569d75b114a9ea820c2c1f1cc1, type: 3}
   loadanimationPlayers:
   - {fileID: 1471122117}
