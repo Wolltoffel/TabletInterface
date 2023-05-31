@@ -961,7 +961,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &274817742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 1605752180}
   - {fileID: 32472844}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: 0.5
   activateDrawLine: 1
   drawLine: 0
@@ -1152,8 +1152,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.007537842
-        value: 0.028593063
+        time: 0
+        value: 0.048614502
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 2133500141}
   - {fileID: 1050385979}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
@@ -1421,8 +1421,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.007537842
-        value: 0.028593063
+        time: 0
+        value: 0.07026482
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 824053174}
   - {fileID: 1586998054}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
@@ -2159,7 +2159,7 @@ RectTransform:
   m_GameObject: {fileID: 805969160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2017874172}
@@ -3065,7 +3065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &979257525
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3949,7 +3949,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 1471122116}
   - {fileID: 825222338}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: 0.5
   activateDrawLine: 1
   drawLine: 0
@@ -5671,7 +5671,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 925651035}
   - {fileID: 2092620269}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: 0.5
   activateDrawLine: 1
   drawLine: 0
@@ -6149,7 +6149,7 @@ MonoBehaviour:
   vertex:
   - {fileID: 389258763}
   - {fileID: 2102877471}
-  distanceToCamera: 1
+  distanceToCamera: 4
   ledgeOffset: -0.5
   activateDrawLine: 1
   drawLine: 0
@@ -6204,8 +6204,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.007537842
-        value: 0.028593063
+        time: 0
+        value: 0.07026482
         inSlope: 0
         outSlope: 0
         tangentMode: 0
