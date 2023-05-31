@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 115
+  m_fontSizeBase: 115
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3258,8 +3258,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 130
-  m_fontSizeBase: 130
+  m_fontSize: 140
+  m_fontSizeBase: 140
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4541,9 +4541,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   infoTexts:
-  - "Oberfl\xE4che aufgekratzt. Gefahr von Rost, Gefahr durch eindringen von Fremdk\xF6rpern.
-    \r\n"
-  - "linkes H\xFCftgelenk erodiert mit jeder weiteren Bewegung. Gefahr von Trennung
+  - "Oberfl\xE4che aufgekratzt.: \n- Gefahr von Rost, Gefahr durch eindringen von
+    Fremdk\xF6rpern\n"
+  - "linkes H\xFCftgelenk erodiert mit jeder weiteren Bewegung.: \n- Gefahr von Trennung
     des H\xFCftgelenk und Beins.\r\n"
   - "Android nicht ansprechbar. Funktionen m\xE4\xDFig bis stark eingeschr\xE4nkt.
     Nicht mehr zur Arbeit geeignet.\r\n"
