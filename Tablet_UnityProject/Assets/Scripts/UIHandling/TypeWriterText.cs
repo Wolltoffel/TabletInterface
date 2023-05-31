@@ -7,7 +7,9 @@ using Unity.VisualScripting;
 public class TypeWriterText : MonoBehaviour
 {
     [SerializeField][Range (0,1)]float typeProgress;
-    TextMeshProUGUI tmpPro; 
+    [SerializeField] private bool startTwOnGameStart = true;
+    TextMeshProUGUI tmpPro;
+    
     IEnumerator Start()
     {
         tmpPro = GetComponent<TextMeshProUGUI>();
@@ -21,12 +23,13 @@ public class TypeWriterText : MonoBehaviour
             int typeProgressInt = (int)Mathf.Round(typeProgress * 100);
             int visibleCount = typeProgressInt * totalVisibleCharacters/100;
             tmpPro.maxVisibleCharacters = visibleCount;
+            Debug.Log("test");
             yield return null;
         }
     }
 
     private void OnEnable()
     {
-        StartCoroutine(Start());
+        if (startTwOnGameStart) StartCoroutine(Start());
     }
 }
