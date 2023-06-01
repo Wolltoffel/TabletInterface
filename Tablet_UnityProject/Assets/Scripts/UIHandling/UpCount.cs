@@ -6,33 +6,33 @@ using System.Globalization;
 
 public class UpCount : MonoBehaviour
 {
-    [SerializeField] public int number;
+    int counter = 0;
+    [SerializeField] float animationDuration;
     [SerializeField]TextMeshProUGUI tmpPro;
 
     CultureInfo culture = CultureInfo.GetCultureInfo("en-US");
 
-    IEnumerator CountUp()
+    IEnumerator CountUp(int maxNumber)
     {
         tmpPro = GetComponent<TextMeshProUGUI>();
 
         yield return new WaitForEndOfFrame();
 
         while (true)
-        {
-            tmpPro.text = number.ToString("C",culture);
-            yield return null;
+        {   
+            tmpPro.text = counter.ToString("C",culture);
+            counter++;
+            yield return new WaitForSeconds(animationDuration);
         }
     }
 
-
-    private void OnEnable()
+    public void StartCountUpAnimaton(int maxNumber)
     {
-        StartCoroutine(CountUp());
+        StartCoroutine(CountUp(maxNumber));
     }
 
-    private void OnDisable()
-    {
-        StopCoroutine(CountUp());
-    }
+  
+
+
 }
 

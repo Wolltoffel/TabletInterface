@@ -12,6 +12,8 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
 
     Sprite activeSprite, passiveSprite;
 
+    public override void PlayAnimation(int estimatedCost) { }
+
     public void AssignPreset (ErrorPreset preset)
     {
         errorPreset = preset;
@@ -57,7 +59,7 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
         }
     }
 
-    public override void SetIndex(int newIndex) { }
+    public override void SetIndex(int estimatedCost) { }
 
     public override int GetIndex()
     {

@@ -23,6 +23,7 @@ public class SFXPlayer
     }
 
     public override void SetIndex(int newIndex) { }
+    public override void PlayAnimation(int estimatedCost) { }
 
     public override int GetIndex()
     {

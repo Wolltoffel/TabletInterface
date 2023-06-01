@@ -16,6 +16,8 @@ public class ButtonAnimations : AnimationPlayer
         left,right
     }
 
+    public override void PlayAnimation(int estimatedCost) { }
+
     [SerializeField]AnimationDirection animationDirection;
 
     public override void SetIndex(int newIndex)

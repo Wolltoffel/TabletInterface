@@ -16,10 +16,10 @@ public abstract class AnimationPlayer : MonoBehaviour
     }
 
     public abstract void PlayAnimation(int index, bool firstButtonPress);
+    public abstract void PlayAnimation(int estimatedCosts);
 
     public abstract void SetIndex(int newIndex);
     public abstract int GetIndex();
-
 
     public IEnumerator startAnimationSequence(int index, bool firstButtonPress)
     {

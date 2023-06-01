@@ -36,7 +36,7 @@ public class InfoTextAnimations: AnimationPlayer
     }
 
     public override void SetIndex(int newIndex) { }
-
+    public override void PlayAnimation(int estimatedCost) { }
     public override int GetIndex()
     {
         return 0;

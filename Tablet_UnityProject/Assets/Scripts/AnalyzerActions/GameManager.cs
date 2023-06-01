@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
         activePreset.ResetAnalyzeButton();
 
         screenManager.switchScreen("TotalScreen");
+        activePreset.CountUpAnimation();
         yield return WaitForScreenToPlugOut();
         screenManager.switchScreen("UnplugScreen");
         yield return WaitForScreenToPlugIn();
