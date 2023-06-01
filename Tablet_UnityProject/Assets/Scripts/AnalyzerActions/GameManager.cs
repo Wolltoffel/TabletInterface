@@ -64,9 +64,9 @@ public class GameManager : MonoBehaviour
         activePreset.ResetProgressBar();
         activePreset.ResetAnalyzeButton();
 
-        screenManager.switchScreen("UnplugScreen");
+        screenManager.switchScreen("TotalScreen");
         yield return WaitForScreenToPlugOut();
-        screenManager.switchScreen("DisconnectScreen");
+        screenManager.switchScreen("UnplugScreen");
         yield return WaitForScreenToPlugIn();
 
         yield return null;
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
     {
         yield return WaitForScreenToPlugOut(); 
         StopCoroutine(gameloop);
-        screenManager.switchScreen("DisconnectScreen");
+        screenManager.switchScreen("UnplugScreen");
 
         yield return WaitForScreenToPlugIn();
         

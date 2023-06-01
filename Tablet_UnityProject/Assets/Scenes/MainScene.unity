@@ -6762,6 +6762,7 @@ GameObject:
   - component: {fileID: 1659798171}
   - component: {fileID: 1659798173}
   - component: {fileID: 1659798172}
+  - component: {fileID: 1659798174}
   m_Layer: 5
   m_Name: 'int Kosten text '
   m_TagString: Untagged
@@ -6886,6 +6887,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659798170}
   m_CullTransparentMesh: 1
+--- !u!114 &1659798174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659798170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912e24538f5fdae428045d6b9d364255, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  number: 1000000
+  tmpPro: {fileID: 1659798172}
 --- !u!1 &1687412728
 GameObject:
   m_ObjectHideFlags: 0
@@ -9288,7 +9303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2135937693
 RectTransform:
   m_ObjectHideFlags: 0
