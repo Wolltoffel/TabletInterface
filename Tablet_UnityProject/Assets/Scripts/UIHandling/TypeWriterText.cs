@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class TypeWriterText : MonoBehaviour
 {
@@ -28,6 +26,6 @@ public class TypeWriterText : MonoBehaviour
 
     private void OnEnable()
     {
-        if (startTwOnGameStart) StartCoroutine(Start());
+      StartCoroutine(Start());
     }
 }
