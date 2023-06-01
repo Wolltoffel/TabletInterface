@@ -162,7 +162,7 @@ public class ErrorPreset : MonoBehaviour
        LogButtonVisit(activeIndex);
        UpdateProgressbar();
     }
-
+    
     IEnumerator BackAnimation()
     {
         //Check if the active button has been pressed for the first time
