@@ -7,7 +7,6 @@ using Unity.VisualScripting;
 public class TypeWriterText : MonoBehaviour
 {
     [SerializeField][Range (0,1)]float typeProgress;
-    [SerializeField] private bool startTwOnGameStart = true;
     TextMeshProUGUI tmpPro;
     
     IEnumerator Start()
