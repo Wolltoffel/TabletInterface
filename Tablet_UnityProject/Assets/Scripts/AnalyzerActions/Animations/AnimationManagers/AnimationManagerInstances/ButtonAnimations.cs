@@ -49,7 +49,10 @@ public class ButtonAnimations : AnimationPlayer
     string FadeOutAnimations()
     {
         visible = false;
-        return "FadeOut";
+        if (hasBeenClickedAtLeastOnce)
+            return "FadeOutAlreadySelected";
+        else
+            return "FadeOutDefault";
     }
 
     string FadeInAnimations(bool hasBeenClicked)
