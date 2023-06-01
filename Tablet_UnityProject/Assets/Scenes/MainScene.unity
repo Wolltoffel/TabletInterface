@@ -356,7 +356,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeProgress: 0
-  startTwOnGameStart: 1
 --- !u!1 &21824696
 GameObject:
   m_ObjectHideFlags: 0
@@ -1029,7 +1028,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeProgress: 0
-  startTwOnGameStart: 0
 --- !u!1 &231623711
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,7 +1157,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeProgress: 0
-  startTwOnGameStart: 1
 --- !u!114 &246208520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4054,7 +4051,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeProgress: 0
-  startTwOnGameStart: 1
 --- !u!114 &992525007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6734,7 +6730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   typeProgress: 0
-  startTwOnGameStart: 0
 --- !u!114 &1635871922
 MonoBehaviour:
   m_ObjectHideFlags: 0
