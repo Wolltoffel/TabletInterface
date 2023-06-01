@@ -10,8 +10,7 @@ public class ButtonAnimations : AnimationPlayer
 {
     bool visible;
     int index;
-
-    [SerializeField] GameObject exclamationMark;
+    bool hasBeenClickedAtLeastOnce;
 
     enum AnimationDirection {
         left,right
@@ -29,51 +28,50 @@ public class ButtonAnimations : AnimationPlayer
     }
     public override void PlayAnimation(int index, bool hasBeenClicked)
     {
-        if (visible)
-            FadeOutAnimations();
-        else
-            FadeInAnimations(hasBeenClicked);
-    }
+        string animationName = "";
 
-    void FadeOutAnimations()
-    {
+        //Set animation direction
         if (animationDirection == AnimationDirection.left)
-        {
-            animator.Play("1 FadeOut");
-        }
-
+            animationName = "Left_";
         else
-        {
-            animator.Play("2 FadeOut");
-        }
+            animationName = "Right_";
 
-        visible = false;
+        //Set animationkind
+        if (visible)
+            animationName = animationName+ FadeOutAnimations();
+        else
+            animationName = animationName+FadeInAnimations(hasBeenClicked);
+
+        //Play animation
+        animator.Play(animationName);
     }
 
-
-    void FadeInAnimations(bool hasBeenClicked)
+    string FadeOutAnimations()
     {
+        visible = false;
+        return "FadeOut";
+    }
+
+    string FadeInAnimations(bool hasBeenClicked)
+    {
+        visible = true;
+
         if (hasBeenClicked)
-        {
-            if (exclamationMark != null)
-                Destroy(exclamationMark);
+            return HasBeenClickedAnimations();
 
-            if (animationDirection == AnimationDirection.left)
-                animator.Play("1 FadeInFirst");
+        else
+            return "FadeInDefault";   
+    }
 
-            else
-                animator.Play("2 FadeInFirst");
-        }
+    string HasBeenClickedAnimations()
+    {
+        if (hasBeenClickedAtLeastOnce)
+            return "FadeInAlreadySelected";
         else
         {
-            if (animationDirection == AnimationDirection.left)
-                animator.Play("1 FadeIn");
-
-            else
-                animator.Play("2 FadeIn");
+            hasBeenClickedAtLeastOnce = true;
+            return "FadeInTransition";
         }
-
-        visible = true;
     }
-    }
+ }
    
