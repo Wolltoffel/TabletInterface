@@ -10,7 +10,7 @@ public class ErrorPreset : MonoBehaviour
     List<GameObject> visitedErrorButtons = new List<GameObject>();
     ErrorButtons[] errorButtonScripts;
     [SerializeField] GameObject backButton;
-    [Space(10)]
+    [Space(20)]
     [SerializeField] GameObject analyzeButton;
     [SerializeField] Sprite activeSprite,passiveSprite;
     AnalyzeButton analyzeButtonScript;
@@ -20,6 +20,9 @@ public class ErrorPreset : MonoBehaviour
     [SerializeField] AnimationPlayerList[] clickAnimationPlayers;
     [SerializeField] AnimationPlayer[] backAnimationPlayers;
     [SerializeField] AnimationPlayer[] exitAnimationPlayers;
+    [Space(20)]
+    [SerializeField] AnimationPlayer[] countUpAnimations;
+    [SerializeField] int estimatedCost;
 
     [Header("Android")]
     [SerializeField]MeshRenderer androidModelRenderer;
@@ -194,6 +197,14 @@ public class ErrorPreset : MonoBehaviour
         for (int i = 0; i < exitAnimationPlayers.Length; i++)
         {
             yield return exitAnimationPlayers[i].startAnimationSequence(activeIndex,false);
+        }
+    }
+
+    public void CountUpAnimation()
+    {
+        for (int i = 0; i < exitAnimationPlayers.Length; i++)
+        {
+            countUpAnimations[i].PlayAnimation(estimatedCost);
         }
     }
 
