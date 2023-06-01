@@ -7,8 +7,7 @@ using System.Globalization;
 public class UpCount : MonoBehaviour
 {
     [SerializeField] public int number;
-    [SerializeField][Range(0, 1)] float countProgress;
-    TextMeshProUGUI tmpPro;
+    [SerializeField]TextMeshProUGUI tmpPro;
 
     CultureInfo culture = CultureInfo.GetCultureInfo("en-US");
 

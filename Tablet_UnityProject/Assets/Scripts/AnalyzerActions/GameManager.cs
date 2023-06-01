@@ -97,7 +97,6 @@ public class GameManager : MonoBehaviour
     IEnumerator WaitForScreenToPlugIn() {
         while (!CheckForCable.checkForChargingCable() || !plugInCable)
         {
-            Debug.Log("CablePluggedOut");
             yield return null;
         }
     }
@@ -108,6 +107,12 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    IEnumerator RunChargingAnimation()
+    {
+        
+        yield return null;
     }
 
 }
