@@ -7,6 +7,7 @@ using System.Globalization;
 public class UpCount : MonoBehaviour
 {
     int counter = 0;
+    [SerializeField]int stepSize;
     [SerializeField] float animationDuration;
     [SerializeField]TextMeshProUGUI tmpPro;
 
@@ -16,13 +17,15 @@ public class UpCount : MonoBehaviour
     {
         tmpPro = GetComponent<TextMeshProUGUI>();
 
-        yield return new WaitForEndOfFrame();
+        float counterFloat = counter;
 
-        while (true)
+        while (counterFloat<maxNumber)
         {   
-            tmpPro.text = counter.ToString("C",culture);
-            counter++;
+            counter +=stepSize;
+            counterFloat = counter * stepSize * Time.deltaTime;
+            tmpPro.text = counterFloat.ToString("C", culture);
             yield return new WaitForSeconds(animationDuration);
+            yield return null;
         }
     }
 
@@ -30,9 +33,5 @@ public class UpCount : MonoBehaviour
     {
         StartCoroutine(CountUp(maxNumber));
     }
-
-  
-
-
 }
 

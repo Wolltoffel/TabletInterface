@@ -202,7 +202,7 @@ public class ErrorPreset : MonoBehaviour
 
     public void CountUpAnimation()
     {
-        for (int i = 0; i < exitAnimationPlayers.Length; i++)
+        for (int i = 0; i < countUpAnimations.Length; i++)
         {
             countUpAnimations[i].PlayAnimation(estimatedCost);
         }

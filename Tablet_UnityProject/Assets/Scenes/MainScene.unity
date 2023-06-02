@@ -3680,6 +3680,9 @@ MonoBehaviour:
   - {fileID: 1605752185}
   - {fileID: 2133500142}
   - {fileID: 389258764}
+  countUpAnimations:
+  - {fileID: 2135937699}
+  estimatedCost: 120570
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 79055fb1e0a677f4fb5c3864cb724e5e, type: 3}
   progressBar: {fileID: 805969162}
@@ -4627,6 +4630,9 @@ MonoBehaviour:
   - {fileID: 1471122117}
   - {fileID: 824053175}
   - {fileID: 925651040}
+  countUpAnimations:
+  - {fileID: 2135937699}
+  estimatedCost: 93017
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 7af79f6d63e78eb41aad4b43ddf28685, type: 3}
   progressBar: {fileID: 805969162}
@@ -6605,7 +6611,6 @@ GameObject:
   - component: {fileID: 1635871920}
   - component: {fileID: 1635871923}
   - component: {fileID: 1635871922}
-  - component: {fileID: 1635871921}
   m_Layer: 5
   m_Name: ICARUS ROBOTICS
   m_TagString: Untagged
@@ -6633,19 +6638,6 @@ RectTransform:
   m_AnchoredPosition: {x: -265, y: -158}
   m_SizeDelta: {x: 880.0355, y: 50}
   m_Pivot: {x: 1, y: 0}
---- !u!114 &1635871921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1635871919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c8d94b48011c5048b67a94731df8814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeProgress: 0
 --- !u!114 &1635871922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6802,7 +6794,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 000.000.000
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 02e8fe0c28adec04ba976a3e32f652ea, type: 2}
   m_sharedMaterial: {fileID: -2708838749245554788, guid: 02e8fe0c28adec04ba976a3e32f652ea, type: 2}
@@ -6891,7 +6883,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912e24538f5fdae428045d6b9d364255, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  number: 1000000
+  stepSize: 271
+  animationDuration: 0
   tmpPro: {fileID: 1659798172}
 --- !u!1 &1687412728
 GameObject:
@@ -9318,13 +9311,14 @@ GameObject:
   - component: {fileID: 2135937695}
   - component: {fileID: 2135937694}
   - component: {fileID: 2135937698}
+  - component: {fileID: 2135937699}
   m_Layer: 5
   m_Name: TotalScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2135937693
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9453,6 +9447,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2135937699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135937692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f64669c6e2ae7e41910d20bd8f0ee31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  upCounter: {fileID: 1659798174}
 --- !u!1 &2141639417
 GameObject:
   m_ObjectHideFlags: 0
