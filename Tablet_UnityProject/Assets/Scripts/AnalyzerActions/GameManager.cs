@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
+        activePreset = errorPresets[0];
         yield return WaitForScreenToPlugIn();
         screenManager.switchScreen("MainScreen");
         gameloop = RunGameLoop();
@@ -100,6 +101,12 @@ public class GameManager : MonoBehaviour
         {
             yield return null;
         }
+
+        Debug.Log("Cable has been plugged in");
+
+        screenManager.switchScreen("ChargeAnimation");
+        yield return activePreset.ChargeAnimation();
+        
     }
 
     IEnumerator WaitForScreenToPlugOut()

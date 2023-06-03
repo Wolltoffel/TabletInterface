@@ -26,7 +26,7 @@ public abstract class AnimationPlayer : MonoBehaviour
         if (animator != null)
         {
             PlayAnimation(index,firstButtonPress);
-            if (!(this.GetType() == typeof(ButtonAnimations)))
+            if (!(this.GetType() == typeof(ButtonAnimations)) && !(this.GetType() == typeof(ChargingAnimations)))
             {
                 float animationDuration = animator.GetCurrentAnimatorStateInfo(0).length;
                 yield return new WaitForSeconds(animationDuration);

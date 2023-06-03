@@ -3845,7 +3845,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 937339292}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: -962.32495, y: -598.08826, z: 0}
+  m_LocalPosition: {x: -963.95044, y: -429.17654, z: 0}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4043,6 +4043,8 @@ MonoBehaviour:
   countUpAnimations:
   - {fileID: 2135937699}
   estimatedCost: 120570
+  chargingAnimations:
+  - {fileID: 4479538727362064064}
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 79055fb1e0a677f4fb5c3864cb724e5e, type: 3}
   progressBar: {fileID: 805969162}
@@ -4993,6 +4995,8 @@ MonoBehaviour:
   countUpAnimations:
   - {fileID: 2135937699}
   estimatedCost: 93017
+  chargingAnimations:
+  - {fileID: 4479538727362064064}
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 7af79f6d63e78eb41aad4b43ddf28685, type: 3}
   progressBar: {fileID: 805969162}
@@ -10504,8 +10508,9 @@ GameObject:
   - component: {fileID: 4479538727362064062}
   - component: {fileID: 4479538727362064061}
   - component: {fileID: 4479538727362064057}
+  - component: {fileID: 4479538727362064064}
   m_Layer: 5
-  m_Name: LoadAnimatoin
+  m_Name: ChargeAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10572,6 +10577,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &4479538727362064064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479538727362064060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4412a3d58b523a247af5762896f852a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  videoPlayer: {fileID: 4479538727763756700}
 --- !u!1 &4479538727763756386
 GameObject:
   m_ObjectHideFlags: 0

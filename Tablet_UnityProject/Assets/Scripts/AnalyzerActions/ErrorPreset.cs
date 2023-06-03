@@ -17,12 +17,17 @@ public class ErrorPreset : MonoBehaviour
 
     [Header ("Animations")]
     [SerializeField] AnimationPlayer[] loadanimationPlayers;
+    [Space(20)]
     [SerializeField] AnimationPlayerList[] clickAnimationPlayers;
+    [Space(20)]
     [SerializeField] AnimationPlayer[] backAnimationPlayers;
+    [Space(20)]
     [SerializeField] AnimationPlayer[] exitAnimationPlayers;
     [Space(20)]
     [SerializeField] AnimationPlayer[] countUpAnimations;
     [SerializeField] int estimatedCost;
+    [Space(20)]
+    [SerializeField] AnimationPlayer[] chargingAnimations;
 
     [Header("Android")]
     [SerializeField]MeshRenderer androidModelRenderer;
@@ -183,7 +188,6 @@ public class ErrorPreset : MonoBehaviour
         //Reset activeIndex
         activeIndex = 0;
     }
-
     void LogButtonVisit(int index)
     {
         GameObject lastVisit = errorButtons[index - 1];
@@ -205,6 +209,20 @@ public class ErrorPreset : MonoBehaviour
         for (int i = 0; i < countUpAnimations.Length; i++)
         {
             countUpAnimations[i].PlayAnimation(estimatedCost);
+        }
+    }
+
+    public IEnumerator ChargeAnimation()
+    {
+        for (int i = 0; i < countUpAnimations.Length; i++)
+        {
+            if (chargingAnimations[i] is ChargingAnimations)
+            {
+                ChargingAnimations chA = chargingAnimations[i] as ChargingAnimations;
+                yield return chA.PlayVideo();
+            }
+            else
+                chargingAnimations[i].startAnimationSequence(0, false);
         }
     }
 
