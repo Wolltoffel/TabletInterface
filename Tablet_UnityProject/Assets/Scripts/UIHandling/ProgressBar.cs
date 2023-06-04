@@ -5,22 +5,22 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ProgressBar : MonoBehaviour
+public class ProgressBar: MonoBehaviour
 {
-    Slider progressSlider;
+    Image image;
     float animationDuration=0.1f;
 
     float progressValue;
 
     private void Awake()
     {
-        progressSlider = GetComponent<Slider>();
+        image = GetComponent<Image>();
     }
 
     public void ResetValues()
     {
         progressValue = 0;
-        progressSlider.value = 0;
+        image.fillAmount = 0;
     }
     public void SetProgressValue(int progressValueRaw)
     {
@@ -30,20 +30,40 @@ public class ProgressBar : MonoBehaviour
     IEnumerator AdjustValue()
     {
         //Save Progress Value
-        float sliderValue = progressSlider.value;
+        float sliderValue = image.fillAmount;
         float current = sliderValue;
-        if(progressValue > sliderValue)
+        if (progressValue > sliderValue)
         {
             float startTime = Time.time;
-            while (current!=progressValue)
+            while (current != progressValue)
             {
                 //Animate Slider over time
                 float t = (Time.time - startTime) / animationDuration;
                 current = Mathf.Lerp(sliderValue, progressValue, t);
-                progressSlider.value = current;
+                image.fillAmount = current;
                 yield return null;
             }
         }
     }
+
+
+    /*IEnumerator AdjustValue()
+{
+    //Save Progress Value
+    float sliderValue = progressSlider.value;
+    float current = sliderValue;
+    if(progressValue > sliderValue)
+    {
+        float startTime = Time.time;
+        while (current!=progressValue)
+        {
+            //Animate Slider over time
+            float t = (Time.time - startTime) / animationDuration;
+            current = Mathf.Lerp(sliderValue, progressValue, t);
+            progressSlider.value = current;
+            yield return null;
+        }
+    }
+}*/
 
 }
