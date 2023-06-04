@@ -17,6 +17,7 @@ public class UpCount : MonoBehaviour
     {
         tmpPro = GetComponent<TextMeshProUGUI>();
 
+        counter = 0;
         float counterFloat = counter;
 
         while (counterFloat<maxNumber)
