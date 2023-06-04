@@ -8,16 +8,11 @@ using UnityEngine.UI;
 
 public class ProgressBar: MonoBehaviour
 {
-    [SerializeField]Image image;
-    [SerializeField] TextMeshPro tmp;
-    float animationDuration=0.1f;
+    [SerializeField] Image image;
+    [SerializeField] TextMeshProUGUI tmp;
+    [SerializeField] float animationDuration;
 
     float progressValue;
-
-    private void Awake()
-    {
-    }
-
     public void ResetValues()
     {
         progressValue = 0;
@@ -27,6 +22,10 @@ public class ProgressBar: MonoBehaviour
     public void SetProgressValue(int progressValueRaw)
     {
         progressValue = progressValueRaw / 3.0f;
+    }
+
+    public void StartValueAnimation()
+    {
         StartCoroutine(AdjustValue());
     }
     IEnumerator AdjustValue()
@@ -43,10 +42,13 @@ public class ProgressBar: MonoBehaviour
                 float t = (Time.time - startTime) / animationDuration;
                 current = Mathf.Lerp(sliderValue, progressValue, t);
                 image.fillAmount = current;
-                tmp.text = $"{current.ToString()}%";
+
+                float textInput = Mathf.Round(current * 100);
+                tmp.text = $"{textInput.ToString()}%";
                 yield return null;
             }
         }
+        yield return null;
     }
 
 

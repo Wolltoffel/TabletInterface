@@ -152,10 +152,12 @@ public class ErrorPreset : MonoBehaviour
 
     public IEnumerator ClickAnimation(int buttonIndex)
     {
-        UpdateProgressbar();
         AnimationPlayer[] animationPlayers = clickAnimationPlayers[buttonIndex-1].animationPlayers;
 
         activeIndex = buttonIndex;
+        LogButtonVisit(activeIndex);
+        UpdateProgressbar();
+
 
         for (int i = 0;i < animationPlayers.Length;i++) {
 
@@ -169,7 +171,6 @@ public class ErrorPreset : MonoBehaviour
     public void GoBack()
     {
        StartCoroutine(BackAnimation());
-       LogButtonVisit(activeIndex);
     }
     
     IEnumerator BackAnimation()
