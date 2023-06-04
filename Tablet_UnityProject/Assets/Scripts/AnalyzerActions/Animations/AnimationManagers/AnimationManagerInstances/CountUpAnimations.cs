@@ -17,6 +17,11 @@ public class CountUpAnimations : AnimationPlayer
     {
         upCounter.StartCountUpAnimaton(estimatedCost);
     }
+
+    public void EmptyCountUpAnmimation()
+    {
+        upCounter.EmptyCountUpAnimaton();
+    }
     public override void ResetStatus(){}
     public override int GetIndex() { return 0; }
     public override void PlayAnimation(int index, bool firstButtonPress) { }

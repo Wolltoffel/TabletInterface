@@ -7,9 +7,9 @@ using System.Globalization;
 public class UpCount : MonoBehaviour
 {
     int counter = 0;
-    [SerializeField]int stepSize;
+    [SerializeField] int stepSize;
     [SerializeField] float animationDuration;
-    [SerializeField]TextMeshProUGUI tmpPro;
+    [SerializeField] TextMeshProUGUI tmpPro;
 
     CultureInfo culture = CultureInfo.GetCultureInfo("en-US");
 
@@ -33,6 +33,11 @@ public class UpCount : MonoBehaviour
     public void StartCountUpAnimaton(int maxNumber)
     {
         StartCoroutine(CountUp(maxNumber));
+    }
+
+    public void EmptyCountUpAnimaton()
+    {
+        tmpPro.text = "";
     }
 }
 
