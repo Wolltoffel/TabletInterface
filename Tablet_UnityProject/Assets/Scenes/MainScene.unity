@@ -1491,7 +1491,7 @@ GameObject:
   - component: {fileID: 323102396}
   - component: {fileID: 323102395}
   m_Layer: 5
-  m_Name: Logo
+  m_Name: logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2964,7 +2964,7 @@ GameObject:
   - component: {fileID: 707511060}
   - component: {fileID: 707511062}
   m_Layer: 5
-  m_Name: Anweisung
+  m_Name: statement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7239,7 +7239,7 @@ GameObject:
   - component: {fileID: 1635871923}
   - component: {fileID: 1635871922}
   m_Layer: 5
-  m_Name: ICARUS ROBOTICS
+  m_Name: icarus robotics name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7375,7 +7375,7 @@ GameObject:
   - component: {fileID: 1659798172}
   - component: {fileID: 1659798174}
   m_Layer: 5
-  m_Name: 'int Kosten text '
+  m_Name: 'int costs '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7725,7 +7725,7 @@ GameObject:
   - component: {fileID: 1699855159}
   - component: {fileID: 1699855161}
   m_Layer: 5
-  m_Name: Reperatur Kosten
+  m_Name: repair costs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8529,7 +8529,7 @@ GameObject:
   - component: {fileID: 1828062476}
   - component: {fileID: 1828062475}
   m_Layer: 5
-  m_Name: arrow
+  m_Name: left arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9092,7 +9092,7 @@ GameObject:
   - component: {fileID: 2009062088}
   - component: {fileID: 2009062090}
   m_Layer: 5
-  m_Name: Status
+  m_Name: status
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
