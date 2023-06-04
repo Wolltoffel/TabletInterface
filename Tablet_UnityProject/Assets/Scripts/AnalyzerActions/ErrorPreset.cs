@@ -152,6 +152,7 @@ public class ErrorPreset : MonoBehaviour
 
     public IEnumerator ClickAnimation(int buttonIndex)
     {
+        UpdateProgressbar();
         AnimationPlayer[] animationPlayers = clickAnimationPlayers[buttonIndex-1].animationPlayers;
 
         activeIndex = buttonIndex;
@@ -163,7 +164,6 @@ public class ErrorPreset : MonoBehaviour
 
             yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
         }
-        UpdateProgressbar();
     }
 
     public void GoBack()
