@@ -12,6 +12,7 @@ public class AnimationPlayerTester : AnimationPlayer
         Debug.Log("test");
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -22,7 +23,7 @@ public class AnimationPlayerTester : AnimationPlayer
 
     public override void SetIndex(int newIndex) { }
     public override void PlayAnimation(int estimatedCost) { }
-
+    public override void ResetStatus() { }
     public override int GetIndex()
     {
         return 0;

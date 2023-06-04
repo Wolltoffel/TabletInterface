@@ -27,6 +27,10 @@ public class ChargingAnimations : AnimationPlayer
     {
     }
 
+    public override void ResetStatus()
+    {
+    }
+
     public override int GetIndex()
     {
         return 0;

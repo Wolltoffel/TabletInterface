@@ -43,4 +43,9 @@ public class InfoTextAnimations: AnimationPlayer
     {
         return 0;
     }
+
+    public override void  ResetStatus()
+    {
+        fadedIn = false;
+    }
 }

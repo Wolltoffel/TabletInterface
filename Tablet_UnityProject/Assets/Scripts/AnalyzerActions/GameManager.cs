@@ -60,10 +60,17 @@ public class GameManager : MonoBehaviour
 
         yield return activePreset.ExitAnimation();
 
-        activePresetIndex++;
+
+        if (activePresetIndex < 1)
+            activePresetIndex++;
+        else
+            activePresetIndex = 0;
+
+
         ErrorPreset.SetActiveIndex(0);
         activePreset.ResetProgressBar();
         activePreset.ResetAnalyzeButton();
+        activePreset.ResetAnimations();
 
         screenManager.switchScreen("TotalScreen");
         activePreset.CountUpAnimation();

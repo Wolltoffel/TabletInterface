@@ -29,4 +29,8 @@ public class SFXPlayer
     {
         return 0;
     }
+
+    public override void ResetStatus()
+    {
+    }
 }

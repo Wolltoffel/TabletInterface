@@ -61,6 +61,7 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
 
     public override void SetIndex(int estimatedCost) { }
 
+    public override void ResetStatus() { }
     public override int GetIndex()
     {
         return 0;

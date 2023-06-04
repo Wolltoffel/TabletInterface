@@ -1,13 +1,14 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ErrorPreset : MonoBehaviour
 {
     [Header("Buttons")]
     [SerializeField] GameObject[] errorButtons;
-    List<GameObject> visitedErrorButtons = new List<GameObject>();
+    List<GameObject> visitedErrorButtons = new List<GameObject>(); //reset
     ErrorButtons[] errorButtonScripts;
     [SerializeField] GameObject backButton;
     [Space(20)]
@@ -247,6 +248,31 @@ public class ErrorPreset : MonoBehaviour
     public void ResetProgressBar()
     {
         progressBar.ResetValues();
+    }
+
+    public void ResetAnimations()
+    {
+        analyzeButtonScript.SetActive(false);
+
+        List<AnimationPlayer[]> allAnimations = new List<AnimationPlayer[]>();
+        allAnimations.Add(loadanimationPlayers);
+        for (int i = 0;i< clickAnimationPlayers.Length;i++)
+        {
+            allAnimations.Add(clickAnimationPlayers[i].animationPlayers);
+        }
+        allAnimations.Add(backAnimationPlayers);
+        allAnimations.Add(exitAnimationPlayers);
+        allAnimations.Add(countUpAnimations);
+        allAnimations.Add(chargingAnimations);
+
+        for (int i = 0; i< clickAnimationPlayers.Length; i++)
+        {
+            for (int j = 0; j < allAnimations[i].Length; j++)
+            {
+                allAnimations[i][j].ResetStatus();
+            }
+        }
+
     }
 
 

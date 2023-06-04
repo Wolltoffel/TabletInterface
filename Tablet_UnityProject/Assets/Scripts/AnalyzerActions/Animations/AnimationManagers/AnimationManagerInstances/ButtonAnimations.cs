@@ -20,6 +20,12 @@ public class ButtonAnimations : AnimationPlayer
 
     [SerializeField]AnimationDirection animationDirection;
 
+    public override void ResetStatus() {
+        visible = false;
+        hasBeenClickedAtLeastOnce = false;
+        index = 0;  
+    }
+
     public override void SetIndex(int newIndex)
     {
         index = newIndex;

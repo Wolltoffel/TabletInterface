@@ -37,4 +37,9 @@ public class CameraAnimations : AnimationPlayer
         return 0;
     }
 
+    public override void ResetStatus()
+    {
+    }
+
+
 }

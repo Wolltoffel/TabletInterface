@@ -21,6 +21,8 @@ public abstract class AnimationPlayer : MonoBehaviour
     public abstract void SetIndex(int newIndex);
     public abstract int GetIndex();
 
+    public abstract void ResetStatus();
+
     public IEnumerator startAnimationSequence(int index, bool firstButtonPress)
     {
         if (animator != null)
