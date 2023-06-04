@@ -16,7 +16,6 @@ public class ProgressBar: MonoBehaviour
 
     private void Awake()
     {
-        image = GetComponent<Image>();
     }
 
     public void ResetValues()

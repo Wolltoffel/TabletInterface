@@ -163,13 +163,13 @@ public class ErrorPreset : MonoBehaviour
 
             yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
         }
+        UpdateProgressbar();
     }
 
     public void GoBack()
     {
        StartCoroutine(BackAnimation());
        LogButtonVisit(activeIndex);
-       UpdateProgressbar();
     }
     
     IEnumerator BackAnimation()
