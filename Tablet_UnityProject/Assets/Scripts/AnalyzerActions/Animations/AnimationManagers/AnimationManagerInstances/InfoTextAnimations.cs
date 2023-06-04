@@ -18,7 +18,9 @@ public class InfoTextAnimations: AnimationPlayer
     bool fadedIn;
 
     public override void PlayAnimation(int index, bool firstButtonPress)
-    { 
+    {
+        index = GameManager.GiveActivePresetIndex() * 3 + index;
+
         infoTextComponent.text = infoTexts[index - 1];
         headerTextComponent.text = headerTexts[index - 1];
         codeTextComponent.text = codeTexts[index - 1];
