@@ -1,13 +1,15 @@
 using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ProgressBar: MonoBehaviour
 {
-    Image image;
+    [SerializeField]Image image;
+    [SerializeField] TextMeshPro tmp;
     float animationDuration=0.1f;
 
     float progressValue;
@@ -21,6 +23,7 @@ public class ProgressBar: MonoBehaviour
     {
         progressValue = 0;
         image.fillAmount = 0;
+        tmp.text = string.Empty;
     }
     public void SetProgressValue(int progressValueRaw)
     {
@@ -41,6 +44,7 @@ public class ProgressBar: MonoBehaviour
                 float t = (Time.time - startTime) / animationDuration;
                 current = Mathf.Lerp(sliderValue, progressValue, t);
                 image.fillAmount = current;
+                tmp.text = $"{current.ToString()}%";
                 yield return null;
             }
         }
