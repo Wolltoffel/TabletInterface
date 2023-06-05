@@ -8,15 +8,14 @@ public class ChargingAnimations : AnimationPlayer
 
     [SerializeField] VideoPlayer videoPlayer;
 
-    public IEnumerator PlayVideo()
+    public void StartVideo()
     {
-        PlayAnimation(0, false);
-        yield return new WaitForSeconds((float)videoPlayer.length/videoPlayer.playbackSpeed);
+        videoPlayer.Play();
     }
 
     public override void PlayAnimation(int index, bool firstButtonPress)
     {
-        videoPlayer.Play();
+        animator.Play("ChargeScale");
     }
 
     public override void PlayAnimation(int estimatedCosts)

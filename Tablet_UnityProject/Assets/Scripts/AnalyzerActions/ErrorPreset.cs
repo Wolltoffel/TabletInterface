@@ -223,13 +223,13 @@ public class ErrorPreset : MonoBehaviour
     {
         for (int i = 0; i < countUpAnimations.Length; i++)
         {
-            if (chargingAnimations[i] is ChargingAnimations)
+           /* if (chargingAnimations[i] is ChargingAnimations)
             {
                 ChargingAnimations chA = chargingAnimations[i] as ChargingAnimations;
                 yield return chA.PlayVideo();
             }
-            else
-                chargingAnimations[i].startAnimationSequence(0, false);
+            else*/
+               yield return chargingAnimations[i].startAnimationSequence(0, false);
         }
     }
 
