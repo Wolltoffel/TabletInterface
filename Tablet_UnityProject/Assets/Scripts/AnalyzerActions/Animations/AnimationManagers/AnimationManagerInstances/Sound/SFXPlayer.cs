@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class SFXPlayer
-    : AnimationPlayer
+public class SFXPlayer: MonoBehaviour
 {
     [SerializeField] AudioClip[] clips;
     [SerializeField] AudioSource audioSource;
@@ -17,20 +16,12 @@ public class SFXPlayer
         }
     }
 
-    public override void PlayAnimation(int index, bool firstButtonPress)
+    public void PlayAudio (int audioIndex)
     {
-        audioSource.PlayOneShot(clips[index]);
-    }
+        if (audioIndex>=clips.Length)
+            Debug.Log(gameObject.name + $" there's no audio clip for index " + audioIndex);
 
-    public override void SetIndex(int newIndex) { }
-    public override void PlayAnimation(int estimatedCost) { }
-
-    public override int GetIndex()
-    {
-        return 0;
+        audioSource.PlayOneShot(clips[audioIndex]);
     }
-
-    public override void ResetStatus()
-    {
-    }
+    
 }
