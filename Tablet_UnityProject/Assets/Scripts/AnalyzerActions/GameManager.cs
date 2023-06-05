@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
 
-        activePreset.ActivateAnalyzeButton();
+        //activePreset.TryActivateAnalyzeButton();
 
         while (!activePreset.AnalyzeButtonPressed())
         {

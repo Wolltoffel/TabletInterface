@@ -116,9 +116,10 @@ public class ErrorPreset : MonoBehaviour
         analyzeButtonScript.ResetButton();
     }
 
-    public void ActivateAnalyzeButton()
+    public void TryActivateAnalyzeButton()
     {
-        analyzeButtonScript.SetActive(true);
+        if (visitedErrorButtons.Count>=3)
+            analyzeButtonScript.SetActive(true);
     }
 
     public void HideErrorButtons()
@@ -186,6 +187,8 @@ public class ErrorPreset : MonoBehaviour
                 hasBeenClicked = errorButtonScripts[index - 1].GetHasBeenClicked();//if that's the case it has to be checked whether it was already clicked on
             yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, hasBeenClicked); 
         }
+
+        TryActivateAnalyzeButton();
 
         //Reset activeIndex
         activeIndex = 0;
