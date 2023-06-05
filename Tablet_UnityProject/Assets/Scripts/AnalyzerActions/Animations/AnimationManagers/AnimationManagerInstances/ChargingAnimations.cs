@@ -16,6 +16,7 @@ public class ChargingAnimations : AnimationPlayer
     public override void PlayAnimation(int index, bool firstButtonPress)
     {
         animator.Play("ChargeScale");
+        animator.Play("ChargeLoop", 1);
     }
 
     public override void PlayAnimation(int estimatedCosts)
