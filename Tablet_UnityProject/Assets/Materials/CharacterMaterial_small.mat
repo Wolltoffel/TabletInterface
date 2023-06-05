@@ -102,7 +102,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 2800000, guid: af2eae7ffcfffdc4eb2554db6933a235, type: 3}
+        m_Texture: {fileID: 2800000, guid: 299a7cb5ed88e26459dd6619fed755b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_3df000ba0bcd459b965da19ec6d90175_Out_0:
@@ -177,7 +177,6 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _Swipe: 0
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 1
