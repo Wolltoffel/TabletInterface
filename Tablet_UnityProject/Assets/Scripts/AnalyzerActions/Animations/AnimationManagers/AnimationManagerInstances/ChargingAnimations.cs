@@ -11,7 +11,7 @@ public class ChargingAnimations : AnimationPlayer
     public IEnumerator PlayVideo()
     {
         PlayAnimation(0, false);
-        yield return new WaitForSeconds((float)videoPlayer.length);
+        yield return new WaitForSeconds((float)videoPlayer.length/videoPlayer.playbackSpeed);
     }
 
     public override void PlayAnimation(int index, bool firstButtonPress)
