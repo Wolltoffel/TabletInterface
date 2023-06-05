@@ -176,6 +176,8 @@ public class ErrorPreset : MonoBehaviour
     
     IEnumerator BackAnimation()
     {
+        TryActivateAnalyzeButton();
+
         //Check if the active button has been pressed for the first time
         errorButtonScripts[activeIndex - 1].SetHasBeenClicked(true); //Set the newly clicked button animation to true
 
@@ -187,8 +189,6 @@ public class ErrorPreset : MonoBehaviour
                 hasBeenClicked = errorButtonScripts[index - 1].GetHasBeenClicked();//if that's the case it has to be checked whether it was already clicked on
             yield return backAnimationPlayers[i].startAnimationSequence(activeIndex, hasBeenClicked); 
         }
-
-        TryActivateAnalyzeButton();
 
         //Reset activeIndex
         activeIndex = 0;
