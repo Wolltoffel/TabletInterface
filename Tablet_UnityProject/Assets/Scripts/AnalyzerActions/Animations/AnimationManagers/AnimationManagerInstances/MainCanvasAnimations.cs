@@ -13,18 +13,25 @@ public class MainCanvasAnimations: AnimationPlayer
     [SerializeField] string[] headerTexts;
     [TextArea]
     [SerializeField] string[] codeTexts;
+
+    [SerializeField]string[] reportTexts = new string[2];
+
     [SerializeField] TextMeshProUGUI headerTextComponent;
     [SerializeField]TextMeshProUGUI infoTextComponent;
     [SerializeField] TextMeshProUGUI codeTextComponent;
+
+    [SerializeField] TextMeshProUGUI reportTextComponent;
     bool fadedIn;
     bool firstFadeIn = true;
 
     public override void PlayAnimation(int index, bool firstButtonPress)
     {
+        int activePresetIndex = GameManager.GiveActivePresetIndex();
+        index = activePresetIndex * 3 + index;
+        reportTextComponent.text = reportTexts[activePresetIndex];
 
-        index = GameManager.GiveActivePresetIndex() * 3 + index;
 
-        
+
         if (index > 0)
         {
             infoTextComponent.text = infoTexts[index - 1];
