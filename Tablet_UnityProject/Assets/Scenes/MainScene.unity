@@ -3654,7 +3654,7 @@ MonoBehaviour:
   - {fileID: 962628274}
   - {fileID: 1111066601}
   screenManager: {fileID: 1687412730}
-  plugInCable: 1
+  plugInCable: 0
 --- !u!1 &824053173
 GameObject:
   m_ObjectHideFlags: 0
@@ -11829,7 +11829,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9083248853930033875
 Transform:
   m_ObjectHideFlags: 0
