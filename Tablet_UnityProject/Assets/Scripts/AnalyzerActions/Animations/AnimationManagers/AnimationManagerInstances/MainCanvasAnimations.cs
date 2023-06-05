@@ -13,14 +13,19 @@ public class MainCanvasAnimations: AnimationPlayer
     [SerializeField] string[] headerTexts;
     [TextArea]
     [SerializeField] string[] codeTexts;
-
+    
+    [Space(20)]
+    [TextArea]
     [SerializeField]string[] reportTexts = new string[2];
-
+    [TextArea]
+    [SerializeField] string[] reportTextHeader = new string[2];
+    
+    [Space(40)]
     [SerializeField] TextMeshProUGUI headerTextComponent;
     [SerializeField]TextMeshProUGUI infoTextComponent;
     [SerializeField] TextMeshProUGUI codeTextComponent;
-
     [SerializeField] TextMeshProUGUI reportTextComponent;
+    [SerializeField] TextMeshProUGUI reportTextHeaderComponent;
     bool fadedIn;
     bool firstFadeIn = true;
 
@@ -29,6 +34,7 @@ public class MainCanvasAnimations: AnimationPlayer
         int activePresetIndex = GameManager.GiveActivePresetIndex();
         index = activePresetIndex * 3 + index;
         reportTextComponent.text = reportTexts[activePresetIndex];
+        reportTextHeaderComponent.text = reportTextHeader[activePresetIndex];
 
 
 
