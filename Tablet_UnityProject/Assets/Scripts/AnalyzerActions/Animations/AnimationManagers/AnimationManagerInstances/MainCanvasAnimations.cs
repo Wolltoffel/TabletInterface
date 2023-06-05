@@ -24,9 +24,13 @@ public class MainCanvasAnimations: AnimationPlayer
 
         index = GameManager.GiveActivePresetIndex() * 3 + index;
 
-        infoTextComponent.text = infoTexts[index - 1];
-        headerTextComponent.text = headerTexts[index - 1];
-        codeTextComponent.text = codeTexts[index - 1];
+        
+        if (index > 0)
+        {
+            infoTextComponent.text = infoTexts[index - 1];
+            headerTextComponent.text = headerTexts[index - 1];
+            codeTextComponent.text = codeTexts[index - 1];
+        }
 
         if (firstFadeIn)
         {
