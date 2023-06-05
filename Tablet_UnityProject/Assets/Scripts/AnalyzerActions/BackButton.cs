@@ -8,6 +8,7 @@ public class BackButton : MonoBehaviour,IPointerDownHandler
 {
 
     ErrorPreset preset;
+    bool active = true;
 
     public void AssignPreset(ErrorPreset preset)
     {
@@ -15,7 +16,16 @@ public class BackButton : MonoBehaviour,IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        preset.GoBack();
+        if (active)
+        {
+            preset.GoBack();
+        }
+        active = false;
+    }
+
+    public void SetActive(bool active)
+    {
+        this.active = active;
     }
 
 }

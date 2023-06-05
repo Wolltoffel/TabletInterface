@@ -11,6 +11,7 @@ public class ErrorPreset : MonoBehaviour
     List<GameObject> visitedErrorButtons = new List<GameObject>(); //reset
     ErrorButtons[] errorButtonScripts;
     [SerializeField] GameObject backButton;
+    BackButton backButtonScript;
     [Space(20)]
     [SerializeField] GameObject analyzeButton;
     [SerializeField] Sprite activeSprite,passiveSprite;
@@ -80,7 +81,6 @@ public class ErrorPreset : MonoBehaviour
 
     public void AssignScriptToBackButton()
     {
-        BackButton backButtonScript;
 
         if (backButton.GetComponent<BackButton>() == null)
         {
@@ -158,6 +158,7 @@ public class ErrorPreset : MonoBehaviour
         activeIndex = buttonIndex;
         LogButtonVisit(activeIndex);
         UpdateProgressbar();
+        backButton.SetActive(true);
 
 
         for (int i = 0;i < animationPlayers.Length;i++) {
@@ -192,6 +193,7 @@ public class ErrorPreset : MonoBehaviour
 
         //Reset activeIndex
         activeIndex = 0;
+        backButtonScript.SetActive(true);
     }
     void LogButtonVisit(int index)
     {
