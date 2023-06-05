@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-
-public class BackButton : MonoBehaviour,IPointerDownHandler
+public class BackButton : MonoBehaviour
 {
 
     ErrorPreset preset;
@@ -13,8 +15,16 @@ public class BackButton : MonoBehaviour,IPointerDownHandler
     public void AssignPreset(ErrorPreset preset)
     {
         this.preset = preset;
+
+        Button button = GetComponent<Button>();
+
+        if (button == null)
+            button = gameObject.AddComponent<Button>();
+
+        button.onClick.AddListener(ButtonPress);
     }
-    public void OnPointerDown(PointerEventData pointerEventData)
+
+    public void ButtonPress()
     {
         if (active)
         {

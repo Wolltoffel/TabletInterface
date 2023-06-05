@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
+public class AnalyzeButton :AnimationPlayer
 {
     bool active=false;
     ErrorPreset errorPreset;
@@ -17,6 +17,13 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
     public void AssignPreset (ErrorPreset preset)
     {
         errorPreset = preset;
+
+        Button button = GetComponent<Button>();
+
+        if (button == null)
+            button = gameObject.AddComponent<Button>();
+
+        button.onClick.AddListener(ButtonPress);
     }
 
     public void AssignSprites(Sprite activeSprite, Sprite passiveSprite) {
@@ -33,7 +40,7 @@ public class AnalyzeButton :AnimationPlayer, IPointerClickHandler
             GetComponent<Image>().sprite = passiveSprite;
     }
 
-    public void OnPointerClick(PointerEventData pointerEventData)
+    public void ButtonPress()
     {
         if (active)
         {
