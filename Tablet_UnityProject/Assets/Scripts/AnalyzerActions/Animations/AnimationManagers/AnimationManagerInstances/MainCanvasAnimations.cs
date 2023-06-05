@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 
-public class InfoTextAnimations: AnimationPlayer
+public class MainCanvasAnimations: AnimationPlayer
 {
     [TextArea]
     [SerializeField] string[] infoTexts;
@@ -16,14 +17,23 @@ public class InfoTextAnimations: AnimationPlayer
     [SerializeField]TextMeshProUGUI infoTextComponent;
     [SerializeField] TextMeshProUGUI codeTextComponent;
     bool fadedIn;
+    bool firstFadeIn = true;
 
     public override void PlayAnimation(int index, bool firstButtonPress)
     {
+
         index = GameManager.GiveActivePresetIndex() * 3 + index;
 
         infoTextComponent.text = infoTexts[index - 1];
         headerTextComponent.text = headerTexts[index - 1];
         codeTextComponent.text = codeTexts[index - 1];
+
+        if (firstFadeIn)
+        {
+            animator.Play("SetUpMainCanvas");
+            firstFadeIn = false;
+            return;
+        }
 
         if (fadedIn)
         {
@@ -47,5 +57,6 @@ public class InfoTextAnimations: AnimationPlayer
     public override void  ResetStatus()
     {
         fadedIn = false;
+        firstFadeIn = true;
     }
 }
