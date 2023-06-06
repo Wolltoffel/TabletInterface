@@ -10,16 +10,16 @@ public class SFXPlayer: MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>(); 
+        /*audioSource = GetComponent<AudioSource>(); 
         if (audioSource == null ) {
             Debug.LogError("Missing AudioSource on "+gameObject.name);
-        }
+        }*/
     }
 
     public void PlayAudio (int audioIndex)
     {
         if (audioIndex>=clips.Length)
-            Debug.Log(gameObject.name + $" there's no audio clip for index " + audioIndex);
+            Debug.LogError(gameObject.name + $" there's no audio clip for index " + audioIndex);
 
         audioSource.PlayOneShot(clips[audioIndex]);
     }
