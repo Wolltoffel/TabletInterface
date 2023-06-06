@@ -21,7 +21,11 @@ public class SFXPlayer: MonoBehaviour
         if (audioIndex>=clips.Length)
             Debug.LogError(gameObject.name + $" there's no audio clip for index " + audioIndex);
 
-        audioSource.PlayOneShot(clips[audioIndex]);
+        // audioSource.PlayOneShot(clips[audioIndex]);
+
+        Debug.Log (gameObject.name+ " has played soundIndex "+audioIndex);
+        AudioSource.PlayClipAtPoint(clips[audioIndex], Camera.main.transform.position);
+
     }
     
 }
