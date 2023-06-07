@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ErrorPreset : MonoBehaviour
@@ -35,7 +36,9 @@ public class ErrorPreset : MonoBehaviour
     [SerializeField]MeshRenderer androidModelRenderer;
     [SerializeField]Texture2D damageTexture;
 
-    [Header ("Other")]
+    [Header("Other")]
+    [SerializeField] AudioClip[] voiceLines;
+    AudioSource voiceSource;
     [SerializeField]ProgressBar progressBar;
     static int activeIndex;
 
@@ -160,14 +163,20 @@ public class ErrorPreset : MonoBehaviour
         UpdateProgressbar();
         backButton.SetActive(true);
 
-
         for (int i = 0;i < animationPlayers.Length;i++) {
 
             if (animationPlayers[i] is ButtonAnimations) {
             }
 
+            if (i== animationPlayers.Length-1)
+            {
+                //AudioSource.PlayClipAtPoint(voiceLines[activeIndex - 1], Camera.main.transform.position);
+                PlaySoundOneShot(voiceLines[activeIndex - 1]);
+            }
+
             yield return animationPlayers[i].startAnimationSequence(buttonIndex, false);
         }
+
     }
 
     public void GoBack()
@@ -178,6 +187,7 @@ public class ErrorPreset : MonoBehaviour
     IEnumerator BackAnimation()
     {
         TryActivateAnalyzeButton();
+        StopVoice();
 
         //Check if the active button has been pressed for the first time
         errorButtonScripts[activeIndex - 1].SetHasBeenClicked(true); //Set the newly clicked button animation to true
@@ -281,6 +291,37 @@ public class ErrorPreset : MonoBehaviour
 
     }
 
+    void PlaySoundOneShot(AudioClip audioClip)
+    {
+        if (voiceSource != null)
+            Destroy(voiceSource.gameObject);
+        GameObject gameObject = Instantiate(new GameObject(), Camera.main.transform.position, Quaternion.Euler(Vector3.zero));
+        gameObject.transform.SetParent(Camera.main.transform);
+        voiceSource = gameObject.AddComponent<AudioSource>();
+        voiceSource.playOnAwake = false;
+        voiceSource.PlayOneShot(audioClip);
+        StartCoroutine(WaitForAudioClipToEnd());
+    }
+
+    void StopVoice()
+    {
+        if (voiceSource != null)
+            Destroy(voiceSource.gameObject);
+    }
+
+    IEnumerator WaitForAudioClipToEnd()
+    {
+        while (true)
+        {
+            if (voiceSource != null && voiceSource.isPlaying)
+                yield return null;
+            else
+                break;
+        }
+
+        if (voiceSource != null)
+            Destroy(voiceSource.gameObject);
+    }
 
 
 

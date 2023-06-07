@@ -2492,9 +2492,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &396915522
 GameObject:
   m_ObjectHideFlags: 0
@@ -4980,9 +4979,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &825222337
 GameObject:
   m_ObjectHideFlags: 0
@@ -5430,9 +5428,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &934539421
 GameObject:
   m_ObjectHideFlags: 0
@@ -5819,6 +5816,10 @@ MonoBehaviour:
   - {fileID: 4479538727362064064}
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 79055fb1e0a677f4fb5c3864cb724e5e, type: 3}
+  voiceLines:
+  - {fileID: 8300000, guid: 4d1a029c45ce94042b1e6d99e1e424c7, type: 3}
+  - {fileID: 8300000, guid: 5839fbdf5142ecd4a8e6d2bfc5079bb9, type: 3}
+  - {fileID: 8300000, guid: 731a820e9a5c3a741ac74f9993942949, type: 3}
   progressBar: {fileID: 1459039262}
 --- !u!1 &963194225
 GameObject:
@@ -5835,6 +5836,7 @@ GameObject:
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
   - component: {fileID: 963194232}
+  - component: {fileID: 963194233}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -5993,6 +5995,20 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxRayIntersections: 0
+--- !u!114 &963194233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304a389123cf37347993d636a1181640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: df295be304230a04782f2a9d3c650191, type: 3}
 --- !u!1 &963587978
 GameObject:
   m_ObjectHideFlags: 0
@@ -7097,6 +7113,10 @@ MonoBehaviour:
   - {fileID: 4479538727362064064}
   androidModelRenderer: {fileID: 1878368681}
   damageTexture: {fileID: 2800000, guid: 7af79f6d63e78eb41aad4b43ddf28685, type: 3}
+  voiceLines:
+  - {fileID: 8300000, guid: 38f391c6783f50e44b0e2df875234e78, type: 3}
+  - {fileID: 8300000, guid: 0096849a4dd2ec545b6b134684c5e0f8, type: 3}
+  - {fileID: 8300000, guid: ace44e8d38733dc419a60c18027aea38, type: 3}
   progressBar: {fileID: 1459039262}
 --- !u!1 &1149043513
 GameObject:
@@ -8745,7 +8765,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: df529245dab5f384c91a9a33c9212174, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: 2b8cce2220451ea44a053dc4166e59d0, type: 3}
+  - {fileID: 8300000, guid: 385094ddea73f294ca1db97d3a41e9ef, type: 3}
 --- !u!1 &1465601507
 GameObject:
   m_ObjectHideFlags: 0
@@ -8813,7 +8834,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -8974,9 +8995,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &1479118827
 GameObject:
   m_ObjectHideFlags: 0
@@ -9067,6 +9087,7 @@ GameObject:
   - component: {fileID: 1500136352}
   - component: {fileID: 1500136356}
   - component: {fileID: 1500136357}
+  - component: {fileID: 1500136358}
   m_Layer: 5
   m_Name: UnplugScreen
   m_TagString: Untagged
@@ -9198,6 +9219,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1500136358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500136351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304a389123cf37347993d636a1181640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 843a00711e8301349a201ff4d5b5c111, type: 3}
 --- !u!1 &1512848282
 GameObject:
   m_ObjectHideFlags: 0
@@ -9814,9 +9849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &1607174436
 GameObject:
   m_ObjectHideFlags: 0
@@ -13778,9 +13812,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 633fd6cf6f599c643943b17e7cbe53b8, type: 3}
   - {fileID: 8300000, guid: 42728e05acc9880429835810409799ce, type: 3}
-  audioSource: {fileID: 0}
+  - {fileID: 8300000, guid: e79b1c1f16b9b314c9e4b67e22b907cf, type: 3}
 --- !u!1 &2135270409
 GameObject:
   m_ObjectHideFlags: 0
@@ -13872,6 +13905,7 @@ GameObject:
   - component: {fileID: 2135937694}
   - component: {fileID: 2135937698}
   - component: {fileID: 2135937699}
+  - component: {fileID: 2135937700}
   m_Layer: 5
   m_Name: TotalScreen
   m_TagString: Untagged
@@ -14021,6 +14055,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
   upCounter: {fileID: 1659798174}
+--- !u!114 &2135937700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135937692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304a389123cf37347993d636a1181640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: a2d3d1ae2bc62d145b264e4907d4e05c, type: 3}
 --- !u!1 &2141639417
 GameObject:
   m_ObjectHideFlags: 0
@@ -14303,6 +14351,7 @@ GameObject:
   - component: {fileID: 4479538727362064065}
   - component: {fileID: 4479538727362064057}
   - component: {fileID: 4479538727362064064}
+  - component: {fileID: 4479538727362064066}
   m_Layer: 5
   m_Name: ChargeAnimation
   m_TagString: Untagged
@@ -14406,6 +14455,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4479538727362064066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4479538727362064060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304a389123cf37347993d636a1181640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 521d185a22921274b9ca9a0599bb9df0, type: 3}
 --- !u!1 &4479538727763756386
 GameObject:
   m_ObjectHideFlags: 0

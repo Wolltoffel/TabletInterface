@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
 public class SFXPlayer: MonoBehaviour
 {
     [SerializeField] AudioClip[] clips;
-    [SerializeField] AudioSource audioSource;
+    GameObject audioHolder;
+    AudioSource audioSource;
+
 
     private void Awake()
     {
@@ -18,14 +21,14 @@ public class SFXPlayer: MonoBehaviour
 
     public void PlayAudio (int audioIndex)
     {
+        Destroy(audioHolder);
+
         if (audioIndex>=clips.Length)
             Debug.LogError(gameObject.name + $" there's no audio clip for index " + audioIndex);
 
-        // audioSource.PlayOneShot(clips[audioIndex]);
-
-        Debug.Log (gameObject.name+ " has played soundIndex "+audioIndex);
         AudioSource.PlayClipAtPoint(clips[audioIndex], Camera.main.transform.position);
 
     }
-    
+
+
 }
